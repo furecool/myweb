@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Git筆記</title>
+  </head>
+  <style media="screen">
+
+    ul{
+      list-style: none;
+      width: 700px;
+      margin: auto;
+    }
+
+    ul li{
+      width: 700px;
+      border: solid;
+      border-width: 1px 1px 0 1px;
+    }
+
+    ul>li:last-child{
+      border-bottom: 1px solid;
+    }
+
+    .groupTitle{
+      padding: 10px;
+      display: block;
+      background-color: rgba(205, 205, 205, 0.56);
+      text-align: center;
+    }
+
+    div{
+      border-top: 1px solid;
+      padding: 1px 20px 1px;
+    }
+
+    table {
+      margin: 50px auto;
+      width: 90%;
+      border-collapse:collapse;
+      border: 1px solid;
+    }
+
+    th,td{
+      padding: 5px;
+      width: 33%;
+      border:1px solid black;
+    }
+
+    pre {
+      font-size: 16px;
+      line-height: 30px;
+    }
+
+    img {
+      width: 100%;
+    }
+
+  </style>
+  <body>
+
+    <ul class="parentWrap">
+
+      <li class="menuGroup">
+        <span class="groupTitle">Git筆記(整理自網路)</span>
+        <div>
+          <p>
+            Git安裝(一個分散式版本控制軟體)
+          </p>
+          <p>
+            Github會員(支援git程式碼存取 & 遠端託管repository的平台)(同類型有bitbucket、gitlab )
+          </p>
+          <p>
+            Sourcetree安裝
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">初始設定</span>
+        <div>
+          <pre>
+cd /c/Users/FURECOOL/Desktop/project
+git init(開啟新的數據庫)
+git --version
+git config --global user.name "furecool"
+git config --global user.email “furecool@gmail.com”
+git config --list (按q跳出)
+
+git config --global alias.st status (縮寫設定)
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">完成本地數據庫</span>
+        <div>
+          <pre>
+git status (目前狀態)
+git add . (檔案加入到索引)
+git commit -m "新增HTML環境" (加入此版本到本地數據庫)
+git log (觀看目前更新的版本)
+
+<img src="0.png" alt="">
+
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">推上(合併)遠端數據庫</span>
+        <div>
+          <pre>
+<img src="1.png" alt="">
+
+git remote add origin https://github.com/furecool/project-1.git
+(origin: 預設的遠端數據庫名字(位置) )
+(https://github.com/furecool/project-1.git: 遠端數據庫的網址 )
+git push -u origin master  (-u可不加)
+
+<img src="2.jpg" alt="">
+<img src="3.jpg" alt="">
+
+Git remote –v (可察看遠端數據庫的位置和網址)
+          </pre>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">分支</span>
+        <span class="groupTitle">(給人家看的在正式主機，自己測試可以開分支)</span>
+        <div>
+          <pre>
+Master:預設分支名稱
+Head:我現在的位置
+
+git branch develop(分支名稱)
+git checkout develop
+git checkout master
+git merge develop (將master合併到develop，快轉:只有一條直線)
+git merge develop --no-ff (沒有快轉)
+ :q! ENTER (跳出)
+
+ <img src="4.png" style="width:300px">
+
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">還原檔案</span>
+        <div>
+          <p>
+            git reflog(查看紀錄，可看到已刪除的版本編號，藉此還原)
+          </p>
+          <p>
+            git checkout ed89a6f(head前往版本編號/分支/版本名稱)( develop / master)
+          </p>
+          <p>
+            git reset HEAD^ (head & 分支名稱(master)一起回退1次)
+          </p>
+          <p>
+            git reset HEAD^ --hard(檔案不要留了)
+          </p>
+          <p>
+            git reset C6(把分支移到某版本，跟checkout比較多了復原的意思，已刪除也可加--hard即可復原)
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">發github PR</span>
+        <div>
+          <pre>
+先fork到自己的空間
+git clone  <版本庫的網址> <本機資料夾>
+做完變更後push上去
+
+<img src="5.png" alt="">
+
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">git fetch</span>
+        <div>
+          <pre>
+
+git fetch <遠端主機名> //這個命令將某個遠端主機的更新全部取回本地
+git fetch <遠端主機名> <分支名> //注意之間有空格
+git fetch origin master
+git log -p FETCH_HEAD
+
+<img src="6.jpg" alt="">
+<img src="7.png" alt="">
+<img src="8.png" alt="">
+
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">git pull</span>
+        <span class="groupTitle"><遠端空間名> <遠端空間分支>:<本地分支> (共同協作第一件事 從雲端下載合併更新)</span>
+        <div>
+          <pre>
+(pull = fetch + merge )
+git pull origin master
+
+<img src="9.png" alt="">
+
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">cmd指令</span>
+        <div>
+          <table>
+            <tr>
+              <th>指令 (Windows/ Mac OS / Linux)</th>
+              <th>描述</th>
+              <th>例子</th>
+            </tr>
+            <tr>
+              <td>exit</td>
+              <td>關閉視窗</td>
+              <td>exit</td>
+            </tr>
+            <tr>
+              <td>cd</td>
+              <td>修改資料夾</td>
+              <td>cd test</td>
+            </tr>
+            <tr>
+              <td>dir / ls</td>
+              <td>條列資料檔案路徑</td>
+              <td>dir</td>
+            </tr>
+            <tr>
+              <td>copy / cp</td>
+              <td>複製檔案</td>
+              <td>
+                <p>copy c:\test\test.txt</p><p>c:\windows\test.txt</p>
+              </td>
+            </tr>
+            <tr>
+              <td>move / mv</td>
+              <td>移動檔案</td>
+              <td>
+                <p>move c:\test\test.txt </p><p>c:\windows\test.txt</p>
+              </td>
+            </tr>
+            <tr>
+              <td>mkdir</td>
+              <td>新建目錄</td>
+              <td>mkdir testdirectory</td>
+            </tr>
+            <tr>
+              <td>rd/del / rm</td>
+              <td>刪除目錄/檔案</td>
+              <td>del c:\test\test.txt</td>
+            </tr>
+            <tr>
+              <td>touch</td>
+              <td>新增檔案</td>
+              <td>touch index.html</td>
+            </tr>
+            <tr>
+              <td>pwd</td>
+              <td>取得目前位置</td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </li>
+
+    </ul>
+
+
+
+  </body>
+</html>

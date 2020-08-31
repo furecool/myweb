@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+      <title>Learning AJAX</title>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="jquery-3.5.1.min.js"></script>
+      <style type="text/css">
+
+      </style>
+  </head>
+  <body>
+
+    <button>提 交</button>
+    <p id="result"></p>
+
+    <script type="text/javascript">
+
+      // $.get("test.html",function(data){
+      //
+      //   alert(data);
+      //
+      // });
+
+      $.ajax({
+
+        url:"test.html"
+
+      }).done(function(data){
+
+        // alert(data)
+
+      });
+
+      $(document).ready(function(){
+
+        $("button").click(function(){
+
+          $.get("test.html",function(data,status){
+
+            // alert(data);
+
+            // alert(status);
+
+            $("#result").html(data);
+
+          })
+        })
+      })
+
+
+    </script>
+
+
+  </body>
+</html>

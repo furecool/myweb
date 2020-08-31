@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" >
+  <head>
+      <title>反應時間</title>
+
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <style>
+
+        :root {
+
+          --bound;
+
+        }
+
+        body {
+
+          background-color: rgba(255, 94, 100, 0.5);
+          color: #FF3864;
+
+        }
+
+        .bold {
+
+          font-weight: bold;
+
+        }
+
+        #box {
+
+          width: var(--bound);
+          height: var(--bound);
+          background-color: red;
+          display: none;
+          position: relative;
+
+        }
+
+
+      </style>
+
+  </head>
+
+  <body>
+
+    <h1>考考你的反應!</h1>
+    <p class="bold">反應時間: <span id="time">0</span>秒</p>
+
+    <div id="box"></div>
+
+
+    <script type="text/javascript">
+
+      var createdTime;
+      var clickedTime;
+      var reactionTime;
+
+      function getRandomColor() {
+
+        var max = 200;
+        var min = 50;
+
+        var green = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        var color = "rgba(255, " + green + ", 100, 1.0)";
+
+        return color;
+
+      }
+
+      function makeBox() {
+
+        var time = Math.random();
+        time = time * 2000;
+
+        setTimeout(function() {
+
+          if (Math.random() >= 0.5) {
+
+            document.getElementById('box').style.borderRadius = "50%";
+
+          } else {
+
+            document.getElementById('box').style.borderRadius = "0px";
+
+          }
+
+          // console.log(window.innerWidth);
+          // console.log(window.innerHeight);
+          //
+          // console.log(document.documentElement.clientWidth);
+          // console.log(document.documentElement.clientHeight);
+
+          var min = 0;
+          var max = window.innerHeight - 280;
+          var top = Math.floor(Math.random() * (max - min + 1)) + min;
+
+          min = 0;
+          max = window.innerWidth - 140;
+
+          var dynamicBound;
+
+          if (window.innerWidth > window.innerHeight) {
+
+            dynamicBound = window.innerWidth / 8;
+            // console.log("Width: " + dynamicBound);
+
+          } else {
+
+            dynamicBound = window.innerHeight / 8;
+            // console.log("Height: " + dynamicBound);
+
+          }
+
+          dynamicBound = dynamicBound + "px";
+          document.documentElement.style.setProperty("--bound", dynamicBound);
+
+          var left = Math.floor(Math.random() * (max - min + 1)) + min;
+
+          document.getElementById('box').style.top = top + "px";
+          document.getElementById('box').style.left = left + "px";
+          document.getElementById('box').style.backgroundColor = getRandomColor();
+          document.getElementById('box').style.display = "block";
+          createdTime = Date.now();
+
+        }, time);
+
+      }
+
+      document.getElementById('box').onclick = function() {
+
+        this.style.display = "none";
+        clickedTime = Date.now();
+        reactionTime = (clickedTime - createdTime) / 1000;
+        document.getElementById('time').innerHTML = reactionTime;
+
+        makeBox();
+
+      }
+
+      makeBox();
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>js4</title>
+  </head>
+  <body>
+  </body>
+  <script>
+  // 1.primitive & object
+  // 2.inheritance繼承機制
+  // 3.PrototypeChain
+  // 4.直接繼承object
+  // 5.function做參數的妙用
+  // 6.function做function的返回值
+  // 7.IIFE
+  // 8.借用其他object的method
+  // 9.局部變量 & 全局變量
+  // 10.使變量的值不被改變
+
+  //================== 1.primitive & object ==================
+
+  // primitive (boolean null undefined number string symbol)
+  // 存放一個值
+  var a = 22 ;
+  var b = a;
+  var a = 35;
+  console.log(a);
+  console.log(b);
+
+  // object
+  // 存放一個指向(地址)
+  var c = {
+    name:'Jerry',
+  }
+  var d = c; // 發現c是一個object,保留指向的流動性
+  c.name = 'Furecool'; //修改地址裡的值
+  console.log(c.name);
+  console.log(d.name);
+
+  var age = 26;
+  var obj = {
+    name:'Gin',
+    lastName:'Lin',
+  }
+  function change(a,b){
+    a = 36;
+    b.lastName = 'Lim';
+  }
+  change(age,obj);
+  console.log(age); //離開了function，取原來的值
+  console.log(obj.lastName); //離開了function，但是object導向新的指向
+
+  //================== 2.inheritance繼承機制 ==================
+
+  var tom = {
+    name:'Tom',
+    lastName:'Li',
+    job:'designer',
+  }
+
+  var Person = function(name,lastName,job){
+    this.name = name;
+    this.lastName = lastName;
+    this.job = job;
+  }
+  // 繼承Person的function
+  var kelly = new Person('Kelly','Chen','retired');
+  var tommy = new Person('Tommy','Huang','teacher');
+  console.log(kelly);
+  console.log(tommy);
+
+  //================== 3.PrototypeChain =====================
+  Person.prototype.location = 'Taiwan';
+  // 所有兒子都能繼承到父親的原型prototype
+  console.log(kelly.location);
+  console.log(tommy.location);
+
+  //==================== 4.直接繼承object ====================
+  //================== (而不用透過function) ==================
+
+  var designer = {
+    product:200,
+    usingTool:'Photoshop',
+  }
+
+  var tommy = Object.create(designer); //繼承designer屬性
+  tommy.name = 'Tommy';
+  tommy.lastName = 'Li';
+  tommy.job = 'designer';
+  console.log(tommy);
+
+  var kelly = Object.create(designer,{
+    name:{value:'Kelly'},
+    yearOfBirth:{value:1993},
+    job:{value:'designer'},
+  });
+  console.log(kelly);
+
+  //================== 5.function做參數的妙用 ==================
+
+  var years = [2011,1995,1987,1945];
+
+  function calculate(arr,func){ //第一屬性填數組，第二屬性填等等寫的function
+    var array = [];
+    for(var i = 0; i<arr.length; i++){
+      //從等等寫的function填上數組參數後得到的數組，來為空array一個個加上元素
+      array.push(func(arr[i]));
+    }
+    return array;
+  }
+
+  function ageCalculate(arr){
+    return 2020-arr;
+  }
+
+  function isFullAges(arr){
+    return arr >= 18;
+  }
+
+  var ages = calculate(years,ageCalculate); // function做參數
+  console.log(ages);
+
+  var fullAges = calculate(ages,isFullAges); // function做參數
+  console.log(fullAges);
+
+  //================== 6.function做function的返回值 ==================
+
+  function sayHello(job){
+    return function(name){
+      if(job === 'designer'){
+        console.log('Hello '+name+', you are a designer!');
+      }else if(job === 'teacher'){
+        console.log('Hello '+name+', you are a teacher!');
+      }
+    }
+  }
+  // var callFunc = sayHello('teacher');
+  // callFunc('Tommy');
+  // 也可以不用callFunc變數
+  sayHello('designer')('Ken');
+
+  //========= 7.IIFE(immediately invoked function expression) ==========
+
+  // function saySomething(){
+  //   console.log('Something!');
+  // }
+  // saySomething();
+
+  (function saySomething(name){
+      console.log('Something! '+name+'!');
+    })('Jerry');
+  console.log(name); // 在function外看不到裡面的變量
+
+  //================== 8.借用其他object的method ==================
+
+  var person = {
+    firstName:'Tommy',
+    lastName:'Li',
+    fullName: function(job1,job2){
+      console.log(this.firstName+' '+this.lastName+' is a '+job1+' and a '+job2+' .');
+    }
+  }
+  // person.fullName();
+
+  var jerry = {
+    firstName:'Jerry',
+    lastName:'Lin',
+  }
+
+  person.fullName.call(jerry,'desperado','peace of junk');
+  person.fullName.bind(jerry,'desperado')('peace of junk');
+
+  //================== 9.全局變量 & 局部變量 ==================
+  //========== (Global variable & local variable) ============
+
+  // function myFunction(){
+  //   var a = 4; // local variable
+  //   console.log(a*a);
+  // }
+  // myFunction();
+  // console.log(a); //無法呼叫local variable
+
+  var a = 5; // Global variable
+  function myFunction(){
+    // var a = 6; //另一個a 是local variable
+    a = 6; //同一個a換數值
+    console.log(a*a);
+  }
+  myFunction();
+  console.log(a);
+
+  //================== 10.使變量的值不被改變 ==================
+
+  // // var counter = 0;
+  // function add(){
+  //   var counter = 0; //變成局部變量
+  //   return counter += 1;
+  // }
+  // add();
+  // add();
+  // add();
+  // console.log(add()); //但是每次呼叫add都會counter=0，加幾次都是1
+
+  // function add(){
+  //   var counter = 0;
+  //   function plus(){
+  //     counter += 1;
+  //   }
+  //   plus();
+  //   return counter;
+  // }
+  // add();
+  // add();
+  // add();
+  // console.log(add());
+
+  var add = (function(){
+
+    var counter = 0;
+
+    return function(){ //一個 function能夠訪問到上一級的scope，叫它 closure
+      return counter += 1;
+    }
+
+  })();
+
+  add();
+  add();
+  console.log(add());
+
+  //================== foreach & map ==================
+
+  var array = [4,9,16,25];
+
+  // foreach可以逐個處理數組
+  // array.forEach(myFunction);
+  //
+  // function myFunction(item,index){
+  //   console.log('index['+index+']: '+item);
+  // }
+
+  array.forEach((item, i) => {
+   console.log('index['+i+']: '+item);
+  });
+
+  // map可不改動原數組下處理，並產生新數組
+  var newArray = array.map(function(item){
+    return item * 2;
+  });
+  console.log(newArray);
+  console.log(array);
+
+  //================== slice & indexOf ==================
+
+  var array = ['Banana','Orange','Lemon','Apple','Mango'];
+  var newArray = array.slice(1,3); //擷取數組其中一段
+  console.log(newArray);
+
+  var index = array.indexOf('Lemon'); // 可得到數組成員編號
+  console.log(index);
+
+
+
+
+
+  </script>
+
+</html>

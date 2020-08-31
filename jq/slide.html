@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+      <title>滑動區塊</title>
+      <meta charset="utf-8">
+      <style media="screen">
+
+      ul{
+        list-style: none;
+      }
+
+      ul li{
+        width: 200px;
+        border: solid;
+        border-width: 1px 1px 0 1px;
+      }
+
+      ul>li:last-child{
+        border-bottom: 1px solid;
+      }
+
+      span{
+        display: block;
+        background-color: rgba(119, 232, 106, 0.56);
+        text-align: center;
+      }
+
+      div{
+        height: 100px;
+        border-top: 1px solid;
+        display: none;
+        background-color: rgba(85, 221, 135, 0.31);
+        text-align: center;
+      }
+
+      </style>
+
+  </head>
+  <body>
+
+    <!-- ul.parentWrap>li.menuGroup*4>span.groupTitle{標題$}+div{我是彈出來的div$} -->
+    <ul class="parentWrap">
+      <li class="menuGroup">
+        <span class="groupTitle">標題1</span>
+        <div>我是彈出來的div1</div>
+      </li>
+      <li class="menuGroup">
+        <span class="groupTitle">標題2</span>
+        <div>我是彈出來的div2</div>
+      </li>
+      <li class="menuGroup">
+        <span class="groupTitle">標題3</span>
+        <div>我是彈出來的div3</div>
+      </li>
+      <li class="menuGroup">
+        <span class="groupTitle">標題4</span>
+        <div>我是彈出來的div4</div>
+      </li>
+    </ul>
+
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+
+    $(function(){
+
+      $(".groupTitle").click(function(){
+        // 下個同輩元素:next 其他的同輩元素:siblings
+        // 鏈式編程，方法可一直調用
+        $(this).next().slideToggle(300).parent().siblings().children("div").slideUp(300);
+      });
+    });
+
+
+
+
+
+    </script>
+  </body>
+</html>

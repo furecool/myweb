@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>css筆記</title>
+  </head>
+  <style media="screen">
+
+    ul{
+      list-style: none;
+      width: 700px;
+      margin: auto;
+    }
+
+    ul li{
+      width: 700px;
+      border: solid;
+      border-width: 1px 1px 0 1px;
+    }
+
+    ul>li:last-child{
+      border-bottom: 1px solid;
+    }
+
+    .groupTitle{
+      padding: 10px;
+      display: block;
+      background-color: rgba(205, 205, 205, 0.56);
+      text-align: center;
+    }
+
+    div{
+      border-top: 1px solid;
+      padding: 1px 20px 1px;
+    }
+
+    table {
+      margin: 50px auto;
+      width: 90%;
+      border-collapse:collapse;
+      border: 1px solid;
+    }
+
+    th,td{
+      padding: 5px;
+      width: 50%;
+      border:1px solid black;
+    }
+
+    pre{
+      font-size: 16px;
+      line-height: 30px;
+    }
+
+    img{
+      width: 100%;
+    }
+
+  </style>
+  <body>
+
+    <ul class="parentWrap">
+
+      <li class="menuGroup">
+        <span class="groupTitle">CSS筆記(整理自網路)</span>
+        <div>
+          <p>階層樣式表 (Cascading Stylesheets；CSS)</p>
+          <p>既非標準程式語言，也不是標記語言, 而是一種風格頁面語言（style sheet language）</p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">導入</span>
+        <div>
+          <p>
+            <pre style="color:#000020;background:#f6f8ff;">&lt;<span style="color:#200080; font-weight:bold; ">link</span> rel="stylesheet" href="<span style="color:#200080; font-weight:bold; ">style</span><span style="color:#308080; ">.</span>css" type="<span style="color:#200080; font-weight:bold; ">text</span>/css"<span style="color:#308080; ">&gt;</span>
+            </pre>
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">selector</span>
+        <div>
+          <p>
+            <img src="1.png" alt="pic">
+          </p>
+          <p>
+            <table>
+              <tr>
+                <th>選擇器名</th>
+                <th>範例</th>
+              </tr>
+              <tr>
+                <td>
+                  元素選擇器，有時也稱作標籤或類型選擇器（Element selector、tag or type selector)
+                </td>
+                <td>
+                  p<br>
+                  <pre style="color:#000020;background:#f6f8ff;">控制 &lt;<span style="color:#200080; font-weight:bold; ">p</span><span style="color:#308080; ">&gt;</span></pre>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ID 選擇器（ID selector）
+                </td>
+                <td>
+                  #my-id
+                  <pre style="color:#000020;background:#f6f8ff;">控制 &lt;<span style="color:#200080; font-weight:bold; ">p</span> id="my-id"<span style="color:#308080; ">&gt;</span> 或 &lt;<span style="color:#200080; font-weight:bold; ">a</span> id="my-id"<span style="color:#308080; ">&gt;</span>
+                  </pre>
+                </td>
+              </tr>
+              <tr>
+                <td>Class 選擇器（Class selector）</td>
+                <td>
+                  .my-class
+                  <pre style="color:#000020;background:#f6f8ff;">控制 &lt;<span style="color:#200080; font-weight:bold; ">p</span> class="my-class"<span style="color:#308080; ">&gt;</span> 與 &lt;<span style="color:#200080; font-weight:bold; ">a</span> class="my-class"<span style="color:#308080; ">&gt;</span>
+                  </pre>
+                </td>
+              </tr>
+              <tr>
+                <td>屬性選擇器（Attribute selector）</td>
+                <td>
+                  img[src]
+                  <pre style="color:#000020;background:#f6f8ff;">控制 &lt;<span style="color:#200080; font-weight:bold; ">img</span> src="myimage<span style="color:#308080; ">.</span>png"<span style="color:#308080; ">&gt;</span> 但不控制 &lt;<span style="color:#200080; font-weight:bold; ">img</span><span style="color:#308080; ">&gt;</span>
+                  </pre>
+                </td>
+              </tr>
+              <tr>
+                <td>虛擬 class 選擇器（Pseudo-class selector）</td>
+                <td>
+                  a:hover
+                  <pre style="color:#000020;background:#f6f8ff;">控制 &lt;<span style="color:#200080; font-weight:bold; ">a</span><span style="color:#308080; ">&gt;</span><span style="color:#308080; ">,</span> 但只有在滑鼠游標停留在連結上時
+                  </pre>
+                </td>
+              </tr>
+            </table>
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">Box Model（區塊模型）</span>
+        <div>
+          <p>
+            <img src="2.png" alt="pic">
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">Display屬性:</span>
+        <div>
+          <p>
+            block「區塊元素」(div)
+          </p>
+          <p>
+            inline「行內元素」(span)
+          </p>
+          <p>
+            none(用以隱藏或顯示該元素)
+          </p>
+          <p>
+            inline-block
+          </p>
+          <p>
+            flex
+          </p>
+          <p>
+            ……
+          </p>
+          <p>
+            (比較常見的例子就是把 li 元素修改成 inline，以便我們將該元素正確地呈現在水平的選單上)
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">margin: auto / max-width:</span>
+        <div>
+          <p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#308080; ">#</span>main <span style="color:#406080; ">{</span>
+  <span style="color:#7779bb; font-weight:bold; ">max-width</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">600</span><span style="color:#006600; ">px</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">margin</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">0</span> <span style="color:#074726; ">auto</span><span style="color:#406080; ">;</span>
+<span style="color:#406080; ">}</span>
+</pre>
+
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">關於 box-sizing 屬性</span>
+        <div>
+          <p>
+            (padding和border不會往外擴張)
+          </p>
+          <p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#308080; ">*</span> <span style="color:#406080; ">{</span>
+  <span style="color:#008484; ">-webkit-box-sizing</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">border-box</span><span style="color:#406080; ">;</span>
+     <span style="color:#008484; ">-moz-box-sizing</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">border-box</span><span style="color:#406080; ">;</span>
+          <span style="color:#7779bb; font-weight:bold; ">box-sizing</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">border-box</span><span style="color:#406080; ">;</span>
+  <span style="color:#406080; ">}</span>
+
+</pre>
+
+            </pre>
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">關於 position 屬性</span>
+        <div>
+          <p>static 不會被特別定位</p>
+          <p>fixed "瀏覽器" 的 "相對位置"</p>
+          <p>relative 其 "原本該出現點" 的 "相對位置"</p>
+          <p>absolute 所處 "上層容器" 的 "相對位置"</p>
+          <p>sticky 同時具備 relative 和 fixed 特性 (滾動中固定導航欄)</p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">關於 float 屬性</span>
+        <div>
+          <p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#200080; font-weight:bold; ">img</span> <span style="color:#406080; ">{</span>
+  <span style="color:#7779bb; font-weight:bold; ">float</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">right</span><span style="color:#406080; ">;</span> (可用於實現文繞圖)
+  <span style="color:#7779bb; font-weight:bold; ">margin</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">0</span> <span style="color:#008c00; ">0</span> <span style="color:#008c00; ">1</span><span style="color:#006600; ">em</span> <span style="color:#008c00; ">1</span><span style="color:#006600; ">em</span><span style="color:#406080; ">;</span>
+<span style="color:#406080; ">}</span>
+</pre>
+
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">關於 clear 屬性</span>
+        <div>
+          <p>clear: left宣告清空所有標示 float: left; 的元素</p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">百分比寬度</span>
+        <div>
+          <p>也可使用 min-width 與 max-width 來限制</p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">媒體查詢（media queries）</span>
+        <div>
+          <p>
+            響應式網頁設計(Responsive web design)的工具。讓我們用百分比寬度來做版面配置，然後當瀏覽器寬度小到無法容納側邊欄中的選單時，把版面配置顯示成一欄：
+          </p>
+          <p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#406080; ">@</span><span style="color:#004a43; ">media</span> <span style="color:#004a43; ">screen and (min-width:600px) </span><span style="color:#406080; ">{</span>
+  <span style="color:#200080; font-weight:bold; ">nav</span> <span style="color:#406080; ">{</span>
+    <span style="color:#7779bb; font-weight:bold; ">float</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">left</span><span style="color:#406080; ">;</span>
+    <span style="color:#7779bb; font-weight:bold; ">width</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">25</span><span style="color:#006600; ">%</span><span style="color:#406080; ">;</span>
+  <span style="color:#406080; ">}</span>
+  <span style="color:#200080; font-weight:bold; ">section</span> <span style="color:#406080; ">{</span>
+    <span style="color:#7779bb; font-weight:bold; ">margin-left</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">25</span><span style="color:#006600; ">%</span><span style="color:#406080; ">;</span>
+  <span style="color:#406080; ">}</span>
+<span style="color:#406080; ">}</span>
+<span style="color:#406080; ">@</span><span style="color:#004a43; ">media</span> <span style="color:#004a43; ">screen and (max-width:599px) </span><span style="color:#406080; ">{</span>
+  <span style="color:#200080; font-weight:bold; ">nav</span> <span style="color:#200080; font-weight:bold; ">li</span> <span style="color:#406080; ">{</span>
+    <span style="color:#7779bb; font-weight:bold; ">display</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">inline</span><span style="color:#406080; ">;</span>
+  <span style="color:#406080; ">}</span>
+<span style="color:#406080; ">}</span>
+</pre>
+
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">display: inline-block</span>
+        <div>
+          <p>
+            困難的方法（使用 float）
+          </p>
+          <p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#308080; ">.</span>box <span style="color:#406080; ">{</span>
+  <span style="color:#7779bb; font-weight:bold; ">float</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">left</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">width</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">200</span><span style="color:#006600; ">px</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">height</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">100</span><span style="color:#006600; ">px</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">margin</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">1</span><span style="color:#006600; ">em</span><span style="color:#406080; ">;</span>
+<span style="color:#406080; ">}</span>
+<span style="color:#308080; ">.</span>after-box <span style="color:#406080; ">{</span>
+  <span style="color:#7779bb; font-weight:bold; ">clear</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">left</span><span style="color:#406080; ">;</span>
+<span style="color:#406080; ">}</span>
+</pre>
+
+          </p>
+          <p>
+            容易的方法（使用 inline-block）
+          </p>
+          <p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#308080; ">.</span>box2 <span style="color:#406080; ">{</span>
+  <span style="color:#7779bb; font-weight:bold; ">display</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">inline-block</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">width</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">200</span><span style="color:#006600; ">px</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">height</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">100</span><span style="color:#006600; ">px</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">margin</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">1</span><span style="color:#006600; ">em</span><span style="color:#406080; ">;</span>
+<span style="color:#406080; ">}</span>
+</pre>
+
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">使用 inline-block 版面配置</span>
+        <div>
+          <p>
+            vertical-align 會影響到 inline-block 元素，你可能會把它的值設定為 top。
+          </p>
+          <p>
+            你需要設定每一欄的寬度。
+          </p>
+          <p>
+            在 HTML 原始碼中，如果元素之間有空白字元，那麼欄與欄之間會產生間隔。
+          </p>
+          <p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#200080; font-weight:bold; ">nav</span> <span style="color:#406080; ">{</span>
+  <span style="color:#7779bb; font-weight:bold; ">display</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">inline-block</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">vertical-align</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">top</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">width</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">25</span><span style="color:#006600; ">%</span><span style="color:#406080; ">;</span>
+<span style="color:#406080; ">}</span>
+<span style="color:#308080; ">.</span>column <span style="color:#406080; ">{</span>
+  <span style="color:#7779bb; font-weight:bold; ">display</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">inline-block</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">vertical-align</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">top</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">width</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">75</span><span style="color:#006600; ">%</span><span style="color:#406080; ">;</span>
+<span style="color:#406080; ">}</span>
+
+</pre>
+
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">column</span>
+        <div>
+          <p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#308080; ">.</span>three-column <span style="color:#406080; ">{</span>
+  <span style="color:#7779bb; font-weight:bold; ">padding</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">1</span><span style="color:#006600; ">em</span><span style="color:#406080; ">;</span>
+  <span style="color:#008484; ">-moz-column-count</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">3</span><span style="color:#406080; ">;</span>
+  <span style="color:#008484; ">-moz-column-gap</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">1</span><span style="color:#006600; ">em</span><span style="color:#406080; ">;</span>
+  <span style="color:#008484; ">-webkit-column-count</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">3</span><span style="color:#406080; ">;</span>
+  <span style="color:#008484; ">-webkit-column-gap</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">1</span><span style="color:#006600; ">em</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">column-count</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">3</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">column-gap</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">1</span><span style="color:#006600; ">em</span><span style="color:#406080; ">;</span>
+<span style="color:#406080; ">}</span>
+
+</pre>
+
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">Flexbox</span>
+        <div>
+          <p>
+            使用 Flexbox 配置複雜的版面
+          </p>
+          <p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#308080; ">.</span>container <span style="color:#406080; ">{</span>
+    <span style="color:#7779bb; font-weight:bold; ">display</span><span style="color:#308080; ">:</span> flex<span style="color:#406080; ">;</span>
+<span style="color:#406080; ">}</span>
+<span style="color:#308080; ">.</span>initial <span style="color:#406080; ">{</span> (200but最小100)
+  <span style="color:#7779bb; font-weight:bold; ">flex</span><span style="color:#308080; ">:</span> initial<span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">width</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">200</span><span style="color:#006600; ">px</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">min-width</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">100</span><span style="color:#006600; ">px</span><span style="color:#406080; ">;</span>
+<span style="color:#406080; ">}</span>
+<span style="color:#308080; ">.</span>none <span style="color:#406080; ">{</span> (200不變)
+  <span style="color:#7779bb; font-weight:bold; ">flex</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">none</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">width</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">200</span><span style="color:#006600; ">px</span><span style="color:#406080; ">;</span>
+<span style="color:#406080; ">}</span>
+<span style="color:#308080; ">.</span>flex1 <span style="color:#406080; ">{</span> (剩下的1/3)
+  <span style="color:#7779bb; font-weight:bold; ">flex</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">1</span><span style="color:#406080; ">;</span>
+<span style="color:#406080; ">}</span>
+<span style="color:#308080; ">.</span>flex2 <span style="color:#406080; ">{</span> (剩下的2/3)
+  <span style="color:#7779bb; font-weight:bold; ">flex</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">2</span><span style="color:#406080; ">;</span>
+<span style="color:#406080; ">}</span>
+
+</pre>
+
+          </p>
+          <p>
+            使用 Flexbox 配置居中的版面
+          </p>
+          <p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#308080; ">.</span>vertical-container <span style="color:#406080; ">{</span>
+  <span style="color:#7779bb; font-weight:bold; ">height</span><span style="color:#308080; ">:</span> <span style="color:#008c00; ">300</span><span style="color:#006600; ">px</span><span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">display</span><span style="color:#308080; ">:</span> -webkit-flex<span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">display</span><span style="color:#308080; ">:</span> flex<span style="color:#406080; ">;</span>
+  <span style="color:#7779bb; font-weight:bold; ">align-items</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">center</span><span style="color:#406080; ">;</span>
+  <span style="color:#008484; ">justify-content</span><span style="color:#308080; ">:</span> <span style="color:#074726; ">center</span><span style="color:#406080; ">;</span>
+<span style="color:#406080; ">}</span>
+
+</pre>
+
+          </p>
+        </div>
+      </li>
+
+    </ul>
+
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <title>html</title>
+      <meta charset="utf-8">
+      <style type="text/css">
+        table ,th ,td {
+          border: 1px solid black;
+          border-collapse:collapse;
+        }
+      </style>
+  </head>
+  <body>
+
+    <h1>That's my header</h1>
+    <pre>That's a description
+      That's a description     That's a description
+    </pre>
+
+    <hr>
+
+    <p>That's <br>a description</p>
+
+    <a href="https://www.youtube.com/"title="前往youtube">youtube link</a>
+    <br>
+    <a href="./Image 017.png"target="_blank"title="甘道夫">你不能過去</a>
+    <br>
+    <img src="Image 017.png"width="500px" alt="you shall not pass!">
+
+    <br>
+    <br>
+    <br>
+
+    <table style="width:100%">
+
+      <caption>角色年齡</caption>
+
+      <tr>
+        <th>姓名</th>
+        <th>年紀</th>
+      </tr>
+      <tr>
+        <td>傑瑞</td>
+        <td>32</td>
+      </tr>
+      <tr>
+        <td>琴</td>
+        <td>24</td>
+      </tr>
+    </table>
+
+    <br>
+    <br>
+    <br>
+
+    <caption>角色位置</caption>
+
+    <table>
+      <tr>
+        <th>地點</th>
+        <th colspan="2">人物</th>
+      </tr>
+      <tr>
+        <td>174</td>
+        <td>傑瑞</td>
+        <td>琴</td>
+      </tr>
+    </table>
+
+    <br>
+    <br>
+    <br>
+
+    <table>
+      <tr>
+        <th>地點</th>
+        <td>174</td>
+      </tr>
+      <tr>
+        <th rowspan="2">人物</th>
+        <td>傑瑞</td>
+      </tr>
+      <tr>
+        <td>琴</td>
+      </tr>
+    </table>
+
+    <br>
+    <br>
+    <br>
+
+    <iframe src="https://www.youtube.com/embed/r52AnI3IrMA" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+    <br>
+    <br>
+    <br>
+
+    <video src="GX011674.mp4" autoplay poster="posterimage.jpg" type="video.mp4" width="560" controls></video>
+
+    <br>
+    <br>
+    <br>
+
+<form action="/login.php">
+
+  使用者:<br>
+  <input type="text" name="username" value="furecool"><br>
+  密碼:<br>
+  <input type="password" name="password" maxlength="10">(最多10個符號)<br>
+  星球:<br>
+  <input type="text" name="star" value="地球"disabled><br>
+  國籍:<br>
+  <input type="text" name="country" value="台灣"readonly><br>
+  <input type="radio" name="gender" value="male"> 男性
+  <input type="radio" name="gender" value="female"> 女性 <br>
+  <input type="checkbox" name="savepassword" value="saved">儲存我的密碼 <br>
+  <textarea name="massage" rows="10" cols="40"></textarea><br>
+  <select  name="option">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select><br>
+  <input type="date" name="day" max="1995-12-30"><br>
+  <input type="submit" name="" value="送 出"><br>
+  <input list="mylists">
+  <datalist id="mylists">
+    <option value="IE"></option>
+    <option value="Firefox"></option>
+    <option value="Google Chrome"></option>
+    <option value="Safari"></option>
+  </datalist><br>
+  <input type="color" name="color" ><br>
+  <input type="email" name="email" ><br>
+  <input type="number" name="number" min="1" max="10"><br>
+
+</form>
+
+
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    1.數據渲染 v-text、v-html、{{}}
+    2.控制模塊顯示隱藏 v-if、v-show
+    3.渲染循環列表 v-for
+ -->
+
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>vue模板指令學習1</title>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <style media="screen">
+        .show {
+          width: 100px;
+          height: 100px;
+          background: red;
+        }
+      </style>
+    </head>
+    <body>
+
+
+      <div id="app">
+
+        <!-- 1.數據渲染 v-text、v-html、{{}} -->
+          <p v-text="message"></p>
+          <p v-html="message"></p>
+          <p v-text="title"></p>
+          <p v-html="title"></p>
+
+        <!-- 2.控制模塊顯示隱藏 v-if、v-show -->
+          <!-- 如果模快不顯示，不渲染 -->
+          <p class="show" v-if="isShow"></p>
+          <!-- 模快不顯示，還是渲染，只是藉由display顯示為none來隱藏  -->
+          <p class="show" v-show="isShow"></p>
+
+        <!-- 3.渲染循環列表 v-for -->
+          <ul>
+            <!-- 類似於for-in -->
+              <li v-for="item in arr">
+                {{item}}
+              </li>
+          </ul>
+
+      </div>
+
+    </body>
+
+        <script type="text/javascript">
+
+          var app = new Vue({
+            el:"#app",
+            data:{
+              message:"Hello World!",
+              title:"<h2>指令學習</h2>",
+              isShow: false,
+              arr:['1.HTML','2.CSS','3.Javascript'],
+            },
+          });
+        </script>
+</html>

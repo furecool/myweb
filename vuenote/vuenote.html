@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js筆記</title>
+  </head>
+  <style media="screen">
+
+      ul{
+        list-style: none;
+        width: 700px;
+        margin: auto;
+      }
+
+      ul li{
+        width: 700px;
+        border: solid;
+        border-width: 1px 1px 0 1px;
+      }
+
+      ul>li:last-child{
+        border-bottom: 1px solid;
+      }
+
+      .groupTitle{
+        padding: 10px;
+        display: block;
+        background-color: rgba(205, 205, 205, 0.56);
+        text-align: center;
+      }
+
+      div{
+        border-top: 1px solid;
+        padding: 1px 20px 1px;
+      }
+
+      table {
+        margin: 50px auto;
+        width: 90%;
+        border-collapse:collapse;
+        border: 1px solid;
+      }
+
+      th,td{
+        padding: 5px;
+        width: 50%;
+        border:1px solid black;
+      }
+
+      pre {
+        font-size: 16px;
+        line-height: 30px;
+      }
+
+      img{
+        width: 100%;
+      }
+
+  </style>
+  <body>
+
+    <ul class="parentWrap">
+
+      <li class="menuGroup">
+        <span class="groupTitle">Vue.js筆記</span>
+        <div>
+          <pre>
+為什麼要學框架(vue,react,angular)?
+函式庫(jQuery) – 套別人寫好的動畫效果
+jQuery – 用DOM元素來觸發功能、設計動畫效果
+vue – 用資料來驅動功能
+DOM – html階層樹中的元素(標籤<span style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">body</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">ul</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">li</span><span style="color:#0057a6; ">&gt;</span></span>)
+This就是function執行時當下外層的物件
+
+el:"#app",(eliment 哪個範圍要有vue功能)
+data 資料綁定用
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">1.	引入Vue庫</span>
+        <div>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">head</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#474796; "> </span><span style="color:#074726; ">src</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">head</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">2.	創建一個標籤</span>
+        <div>
+
+          <pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">body</span><span style="color:#0057a6; ">&gt;</span>
+            <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">div</span><span style="color:#474796; "> </span><span style="color:#074726; ">id</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"app"</span><span style="color:#0057a6; ">&gt;</span>
+                    {{message}}
+            <span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">div</span><span style="color:#0057a6; ">&gt;</span>
+          <span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">body</span><span style="color:#0057a6; ">&gt;</span>
+          </pre>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">3.	創建一個Vue對象</span>
+        <div>
+
+          <pre style="color:#000020;background:#f6f8ff;"><span style="color:#308080; ">&lt;</span>body<span style="color:#308080; ">&gt;</span>…<span style="color:#308080; ">&lt;</span><span style="color:#308080; ">/</span>body<span style="color:#308080; ">&gt;</span>
+          <span style="color:#308080; ">&lt;</span>script type<span style="color:#308080; ">=</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">text/javascript</span><span style="color:#800000; ">"</span><span style="color:#308080; ">&gt;</span>
+
+                   <span style="color:#200080; font-weight:bold; ">var</span> app <span style="color:#308080; ">=</span> <span style="color:#200080; font-weight:bold; ">new</span> Vue<span style="color:#308080; ">(</span><span style="color:#406080; ">{</span>
+                     el<span style="color:#406080; ">:</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">#app</span><span style="color:#800000; ">"</span><span style="color:#308080; ">,</span>    <span style="color:#595979; ">//vue對象的掛載點 </span>
+                     data<span style="color:#406080; ">:</span> <span style="color:#406080; ">{</span>       <span style="color:#595979; ">//自定義數據</span>
+                       message<span style="color:#406080; ">:</span> <span style="color:#800000; ">"</span><span style="color:#1060b6; ">hello Vue!!</span><span style="color:#800000; ">"</span><span style="color:#308080; ">,</span>
+                     <span style="color:#406080; ">}</span><span style="color:#308080; ">,</span>
+                   <span style="color:#406080; ">}</span><span style="color:#308080; ">)</span><span style="color:#406080; ">;</span>
+
+                <span style="color:#308080; ">&lt;</span><span style="color:#308080; ">/</span>script<span style="color:#308080; ">&gt;</span>
+          </pre>
+          <pre>
+<a href="vue1.html">連結</a>
+          </pre>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">4.	數據渲染 v-text、v-html、{{}}</span>
+        <div>
+
+          <pre style="color:#000020;background:#f6f8ff;">data<span style="color:#406080; ">:</span><span style="color:#406080; ">{</span>
+
+          title<span style="color:#406080; ">:</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">&lt;h2&gt;指令學習&lt;/h2&gt;</span><span style="color:#800000; ">"</span><span style="color:#308080; ">,</span>
+          isShow<span style="color:#406080; ">:</span> <span style="color:#0f4d75; ">false</span><span style="color:#308080; ">,</span>
+          arr<span style="color:#406080; ">:</span><span style="color:#308080; ">[</span><span style="color:#800000; ">'</span><span style="color:#1060b6; ">1.HTML</span><span style="color:#800000; ">'</span><span style="color:#308080; ">,</span><span style="color:#800000; ">'</span><span style="color:#1060b6; ">2.CSS</span><span style="color:#800000; ">'</span><span style="color:#308080; ">,</span><span style="color:#800000; ">'</span><span style="color:#1060b6; ">3.Javascript</span><span style="color:#800000; ">'</span><span style="color:#308080; ">]</span><span style="color:#308080; ">,</span>
+          <span style="color:#406080; ">}</span>
+
+          <span style="color:#308080; ">&lt;</span>p v<span style="color:#308080; ">-</span>text<span style="color:#308080; ">=</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">title</span><span style="color:#800000; ">"</span><span style="color:#308080; ">&gt;</span><span style="color:#308080; ">&lt;</span><span style="color:#308080; ">/</span>p<span style="color:#308080; ">&gt;</span>
+          <span style="color:#308080; ">&lt;</span>p v<span style="color:#308080; ">-</span>html<span style="color:#308080; ">=</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">title</span><span style="color:#800000; ">"</span><span style="color:#308080; ">&gt;</span><span style="color:#308080; ">&lt;</span><span style="color:#308080; ">/</span>p<span style="color:#308080; ">&gt;</span>
+          </pre>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">5.	控制模塊顯示隱藏 v-if、v-show</span>
+        <div>
+          <p>如果模塊不顯示，不渲染</p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#308080; ">&lt;</span>p <span style="color:#200080; font-weight:bold; ">class</span><span style="color:#308080; ">=</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">show</span><span style="color:#800000; ">"</span> v<span style="color:#308080; ">-</span><span style="color:#200080; font-weight:bold; ">if</span><span style="color:#308080; ">=</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">isShow</span><span style="color:#800000; ">"</span><span style="color:#308080; ">&gt;</span><span style="color:#308080; ">&lt;</span><span style="color:#308080; ">/</span>p<span style="color:#308080; ">&gt;</span>
+</pre>
+
+          <p>模塊不顯示，還是渲染，只是藉由display顯示為none來隱藏</p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#308080; ">&lt;</span>p <span style="color:#200080; font-weight:bold; ">class</span><span style="color:#308080; ">=</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">show</span><span style="color:#800000; ">"</span> v<span style="color:#308080; ">-</span>show<span style="color:#308080; ">=</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">isShow</span><span style="color:#800000; ">"</span><span style="color:#308080; ">&gt;</span><span style="color:#308080; ">&lt;</span><span style="color:#308080; ">/</span>p<span style="color:#308080; ">&gt;</span>
+</pre>
+
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">6.	渲染循環列表 v-for</span>
+        <div>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">ul</span><span style="color:#0057a6; ">&gt;</span>
+     <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">li</span><span style="color:#474796; "> v-</span><span style="color:#074726; ">for</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"item in arr"</span><span style="color:#0057a6; ">&gt;</span>
+       {{item}}
+     <span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">li</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">ul</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+<p>
+  <a href="vue2.html">連結</a>
+</p>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">7.	事件綁定 v-on</span>
+        <div>
+
+          <pre style="color:#000020;background:#f6f8ff;">data:{
+
+                    imgSite: 'img/safari<span style="color:#008c00; ">.</span>png',  //圖片位置
+                    message: 'vue入門之模板指令學習',
+                    isActive: true
+
+          },
+          methods:{
+
+                    speak: function(){
+
+                    alert("hello!!");
+
+                    }
+          }
+
+            <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">p</span><span style="color:#474796; "> </span><span style="color:#074726; ">class</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"show"</span><span style="color:#474796; "> v-on:click</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"speak"</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">p</span><span style="color:#0057a6; ">&gt;</span>
+            <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">p</span><span style="color:#474796; "> </span><span style="color:#074726; ">class</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"show"</span><span style="color:#474796; "> @click</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"speak"</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">p</span><span style="color:#0057a6; ">&gt;</span>
+          </pre>
+
+
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">8.	屬性綁定 v-bind :</span>
+        <div>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">img</span><span style="color:#474796; ">  </span><span style="color:#074726; ">src</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"img/ppt.png"</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">img</span><span style="color:#474796; ">  v-bind:</span><span style="color:#074726; ">src</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"imgSite"</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">img</span><span style="color:#474796; ">  :</span><span style="color:#074726; ">src</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"imgSite"</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">9.	樣式綁定 v-bind :</span>
+        <div>
+          <p>isActive為true，給該div加個class叫active</p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">div</span><span style="color:#474796; "> </span><span style="color:#074726; ">class</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"view"</span><span style="color:#474796; "> v-bind:</span><span style="color:#074726; ">class</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"{active:isActive}"</span><span style="color:#0057a6; ">&gt;</span>
+   {{message}}
+<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">div</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+<p>
+  <a href="vue3.html">連結</a>
+</p>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">10.雙向數據綁定 v-model</span>
+        <div>
+
+<pre style="color:#000020;background:#f6f8ff;">data<span style="color:#406080; ">:</span><span style="color:#406080; ">{</span>
+     title<span style="color:#406080; ">:</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">Vue入門</span><span style="color:#800000; ">"</span><span style="color:#308080; ">,</span>
+<span style="color:#406080; ">}</span>
+</pre>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">input</span><span style="color:#474796; "> v-model</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"title"</span><span style="color:#474796; "> </span><span style="color:#0057a6; ">/&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">p</span><span style="color:#0057a6; ">&gt;</span>{{title}}<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">p</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+<p>
+  <a href="vue4.html">連結</a>
+</p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">11.根據點擊次數i，顯示不同的內容</span>
+        <div>
+          <p>
+            <a href="vue5.html">連結</a>
+          </p>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">12.Vue CLI 安裝</span>
+        <div>
+          <pre>
+在terminal中
+-$ npm install –g vue-cli //安裝操作
+-$ vue –V //查看版本
+-$ vue list //查看可以使用那些模板
+cd desktop //或其他位置
+-$ vue init < template-name > < project-name >
+(如: vue init webpack todolist)
+詢問是否安裝一些東西
+cd todolist
+npm install
+npm run dev
+localhost:8080
+          </pre>
+
+        </div>
+      </li>
+
+    </ul>
+
+
+
+  </body>
+</html>

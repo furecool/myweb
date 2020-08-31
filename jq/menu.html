@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+      <title>下拉菜單</title>
+      <meta charset="utf-8">
+      <style media="screen">
+
+        *{
+          margin: 0;
+          padding: 0;
+        }
+
+        ul{
+          list-style: none;
+        }
+
+        .wrap{
+          width: 370px;
+          height: 30px;
+          margin: 100px auto 0;
+        }
+
+        .wrap>ul>li{
+          float: left;
+          margin-right: 10px;
+          position: relative;
+        }
+
+        .wrap a{
+          display: block;
+          height: 30px;
+          width: 100px;
+          text-decoration: none;
+          color: #rgb(245, 69, 137);
+          line-height: 30px;
+          text-align: center;
+        }
+
+        .wrap li ul{
+          position: absolute;
+          top: 30px;
+          display: none;
+        }
+
+      </style>
+
+  </head>
+  <body>
+
+    <div class="wrap">
+
+      <ul>
+        <li>
+          <a href="">經典調酒</a>
+          <ul>
+            <li><a href="">長島冰茶</a></li>
+            <li><a href="">瑪格麗特</a></li>
+            <li><a href="">馬丁尼</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="">特調</a>
+          <ul>
+            <li><a href="">青梅祭典</a></li>
+            <li><a href="">六月</a></li>
+            <li><a href="">橙色玫瑰夢</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="">啤酒</a>
+          <ul>
+            <li><a href="">生啤酒</a></li>
+            <li><a href="">奶蓋啤酒</a></li>
+            <li><a href="">瓶裝啤酒</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+
+    $(function(){
+
+      var $li = $(".wrap>ul>li");
+
+      // $li.mouseover(function(){
+      //   $(this).children("ul").show(300);
+      // });
+      //
+      // $li.mouseout(function(){
+      //   $(this).children("ul").hide(300);
+      // });
+
+      $li.mouseenter(function(){
+        $(this).children("ul").stop().slideDown(300);
+      });
+
+      $li.mouseleave(function(){
+        $(this).children("ul").stop().slideUp(300);
+      });
+
+    });
+
+    </script>
+  </body>
+</html>

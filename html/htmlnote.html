@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>html筆記</title>
+  </head>
+  <style media="screen">
+
+  ul{
+    list-style: none;
+    width: 700px;
+    margin: auto;
+  }
+
+  ul li{
+    width: 700px;
+    border: solid;
+    border-width: 1px 1px 0 1px;
+  }
+
+  ul>li:last-child{
+    border-bottom: 1px solid;
+  }
+
+  .groupTitle{
+    padding: 10px;
+    display: block;
+    background-color: rgba(205, 205, 205, 0.56);
+    text-align: center;
+  }
+
+  div{
+    border-top: 1px solid;
+    padding: 1px 20px 1px;
+  }
+
+  table {
+    margin: 50px auto;
+    width: 90%;
+    border-collapse:collapse;
+    border: 1px solid;
+  }
+
+  th,td{
+    padding: 5px;
+    width: 50%;
+    border:1px solid black;
+  }
+
+  pre {
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  img{
+    width: 100%;
+  }
+
+
+  </style>
+  <body>
+
+    <ul class="parentWrap">
+
+      <li class="menuGroup">
+        <span class="groupTitle">HTML(整理自網路)</span>
+        <div>
+          <pre>
+1.
+超文本標記語言（英語：HyperText Markup Language，簡稱：HTML）
+
+用於建立網頁的標準標記語言
+描述一個網站的結構語意，一種標記語言而非程式語言
+它被用來結構化資訊——例如標題、段落和列表等等
+也可用來在一定程度上描述文件的外觀和語意
+
+語言形式為尖括號包圍的HTML元素（如&lt;html&gt;）
+
+2.
+網頁瀏覽器可以讀取HTML檔案，並視覺化網頁
+瀏覽器使用HTML標籤和指令碼來詮釋網頁內容，但不會將它們顯示在頁面上
+HTML標記包含標籤（及其屬性）、基於字元的資料類型、字元參照和實體參照等幾個關鍵部分
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">屬性</span>
+        <div>
+
+            <p>
+              大多數元素的屬性以「屬性=值」的形式成對出現
+            </p>
+            <p>
+              •	id屬性為元素提供了在全文件內的唯一標識。它用於辨識元素，以便樣式表可以改變其表現屬性，指令碼可以改變、顯示或刪除其內容或格式化。對於提姆加到頁面的URL，它為元素提供了一個全域唯一標識，通常為頁面的子章節。例如，ID "屬性"對於https://zh.wikipedia.org/wiki/HTML#属性
+            </p>
+            <p>
+              •	class屬性提供一種將類似元素分類的方式。常被用於語意化或格式化。例如，一個HTML文件可指定類&lt;class="標記"&gt;來表明所有具有這一類值的元素都從屬於文件的主文字。格式化後，這樣的元素可能會聚集在一起，並作為頁面註腳而不會出現在HTML代碼中。類屬性也被用於微格式的語意化。類值也可進行多聲明。如<span style="color:#000020;background:#f6f8ff;">&lt;class="標記 重要"<span style="color:#308080; ">&gt;</span>
+            </span>將元素同時放入標記與重要兩類中。
+            </p>
+            <p>
+              •	style屬性可以將表現性質賦予一個特定元素。比起使用id或class 屬性從樣式表中選擇元素，「style」被認為是一個更好的做法，儘管有時這對一個簡單、專用或特別的樣式顯得太繁瑣。
+            </p>
+            <p>
+              •	title屬性用於給元素一個附加的說明。 大多數瀏覽器中這一屬性顯示為工具提示。
+            </p>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">關於&lt;meta charset="utf-8"&gt;</span>
+        <div>
+          <p>
+            meta裡面主要放的是一些關於網站內容的描述或SEO相關的關鍵字等，除此之外，還有一個描述是關於編碼，告訴它要用什麼解碼，utf-8和big-5都是中文常用的編碼
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">文字標籤H1~H6</span>
+        <div>
+          <p>
+            一個頁面裡最好只用一個 H1，因為H1是最高層級的標題，而H2、H3..代表層級較低的標題
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">文字標籤p與span</span>
+        <div>
+          <p>
+            p就是指paragraph，也就是段落的意思
+span比較像是一個行內元素
+&lt;p&gt;被隔成了兩行，但是&lt;span&gt;還是只有一行，因為&lt;p&gt;的特性是block，就是一個區塊，而&lt;span&gt;是一個inline(行內元素)
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">利用CSS更改預設值</span>
+        <div>
+          <p>在HTML第一個標籤後面按下空格，並鍵入style="欲修改的樣式"</p>
+
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">h1</span><span style="color:#474796; "> </span><span style="color:#074726; ">style</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"</span><span style="color:#7779bb; font-weight:bold; ">font-size</span><span style="color:#308080; ">:</span><span style="color:#474796; "> </span><span style="color:#008c00; ">100</span><span style="color:#006600; ">px</span><span style="color:#406080; ">;</span><span style="color:#1060b6; ">"</span><span style="color:#0057a6; ">&gt;</span>Test <span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">h1</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">p</span><span style="color:#474796; "> </span><span style="color:#074726; ">style</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"</span><span style="color:#7779bb; font-weight:bold; ">display</span><span style="color:#308080; ">:</span><span style="color:#474796; "> </span><span style="color:#074726; ">inline</span><span style="color:#406080; ">;</span><span style="color:#1060b6; ">"</span><span style="color:#0057a6; ">&gt;</span>p inline<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">p</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">span</span><span style="color:#474796; "> </span><span style="color:#074726; ">style</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"</span><span style="color:#7779bb; font-weight:bold; ">display</span><span style="color:#308080; ">:</span><span style="color:#474796; "> </span><span style="color:#074726; ">block</span><span style="color:#406080; ">;</span><span style="color:#1060b6; ">"</span><span style="color:#0057a6; ">&gt;</span> span<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">span</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">常見標籤</span>
+        <div>
+          <p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">b</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">strong</span><span style="color:#0057a6; ">&gt;</span>    -   粗體
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">i</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">em</span><span style="color:#0057a6; ">&gt;</span>  -  斜體
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">del</span><span style="color:#0057a6; ">&gt;</span>  - 刪除線
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">ins</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">u</span><span style="color:#0057a6; ">&gt;</span>  - 底線
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">mark</span><span style="color:#0057a6; ">&gt;</span>  - 標記
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">big</span><span style="color:#0057a6; ">&gt;</span> - 字體放大 / <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">small</span><span style="color:#0057a6; ">&gt;</span> - 字體縮小
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">sup</span><span style="color:#0057a6; ">&gt;</span> - 上標 / <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">sub</span><span style="color:#0057a6; ">&gt;</span> - 下標
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">code</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">kbd</span><span style="color:#0057a6; ">&gt;</span> - 程式碼標籤
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">q</span><span style="color:#0057a6; ">&gt;</span> - 引用
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">xmp</span><span style="color:#0057a6; ">&gt;</span> - 顯示HTML原始碼
+</pre>
+
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">跑馬燈</span>
+        <div>
+          <p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">marquee</span><span style="color:#474796; "> </span><span style="color:#074726; ">behavior</span><span style="color:#308080; ">=</span><span style="color:#474796; ">alternate </span><span style="color:#074726; ">bgcolor</span><span style="color:#308080; ">=</span><span style="color:#474796; ">ffffcc </span><span style="color:#074726; ">width</span><span style="color:#308080; ">=</span><span style="color:#008c00; ">70%</span><span style="color:#0057a6; ">&gt;</span>聖誕快樂<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">marquee</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">超連結</span>
+        <div>
+          <p>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">a</span><span style="color:#474796; "> </span><span style="color:#074726; ">href</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"*超連結網址*"</span><span style="color:#0057a6; ">&gt;</span>超連結<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">a</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">a</span><span style="color:#474796; "> </span><span style="color:#074726; ">href</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"#top"</span><span style="color:#0057a6; ">&gt;</span>按我可回到top<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">a</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+          </p>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">圖片</span>
+        <div>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">img</span><span style="color:#474796; "> </span><span style="color:#074726; ">src</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"images/1234.gif"</span><span style="color:#474796; "> </span><span style="color:#074726; ">width</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"176"</span><span style="color:#474796; "> </span><span style="color:#074726; ">height</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"62"</span><span style="color:#474796; "> </span><span style="color:#074726; ">alt</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"無顯圖時的提示文字</span><span style="color:#474796; "></span><span style="color:#1060b6; ">"&gt;</span>
+</pre>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">音樂</span>
+        <div>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">embed</span><span style="color:#474796; "> </span><span style="color:#074726; ">src</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"http://********/midi/music.mid"</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+<p>autostart=true	網頁出現時自動開啟音樂檔而不用去按功能的播放。</p>
+<p>autostart=false	就是讓人自己去按才可聽，若要如此這個可以不用寫就有這功能了，也就是內定之意。</p>
+<p>hidden=true	隱藏，也就所謂的背景音樂。反之false為顯示出來[內定]。</p>
+<p>loop=true	即為重覆播放。反之false為播放一次後停止[內定]。</p>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">表格</span>
+        <div>
+          <table>
+            <tr>
+              <td>原始碼內容</td>
+              <td>輸出後結果</td>
+            </tr>
+            <tr>
+              <td>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">table</span><span style="color:#474796; "> </span><span style="color:#074726; ">border</span><span style="color:#308080; ">=</span><span style="color:#008c00; ">1</span><span style="color:#0057a6; ">&gt;</span>
+　 <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">tr</span><span style="color:#0057a6; ">&gt;</span>
+　　 <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">th</span><span style="color:#0057a6; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">th</span><span style="color:#0057a6; ">&gt;</span>
+　　 <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">th</span><span style="color:#0057a6; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">th</span><span style="color:#0057a6; ">&gt;</span>
+　 <span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">tr</span><span style="color:#0057a6; ">&gt;</span>
+　 <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">tr</span><span style="color:#0057a6; ">&gt;</span>
+　　 <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">td</span><span style="color:#0057a6; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">td</span><span style="color:#0057a6; ">&gt;</span>
+　　 <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">td</span><span style="color:#0057a6; ">&gt;</span><span style="color:#008c00; ">4</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">td</span><span style="color:#0057a6; ">&gt;</span>
+　 <span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">tr</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">table</span><span style="color:#0057a6; ">&gt;</span>　
+</pre>
+
+              </td>
+              <td>
+                <table>
+                  <tr>
+                    <th>1</th>
+                    <th>2</th>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>4</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table>
+            <tr>
+              <td>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">table</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">table</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+              </td>
+              <td>基本</td>
+            </tr>
+            <tr>
+              <td>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">tr</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">tr</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+              </td>
+              <td>table row</td>
+            </tr>
+            <tr>
+              <td>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">th</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">th</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+              </td>
+              <td>table head</td>
+            </tr>
+            <tr>
+              <td>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">td</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">td</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+              </td>
+              <td>table data</td>
+            </tr>
+            <tr>
+              <td>
+
+<pre style="color:#000020;background:#f6f8ff;">border=設定
+</pre>
+
+              </td>
+              <td>外框設定</td>
+            </tr>
+          </table>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">表單</span>
+        <div>
+          <table>
+            <tr>
+              <td>文字欄位</td>
+              <td>
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">input</span><span style="color:#474796; "> </span><span style="color:#074726; ">type</span><span style="color:#308080; ">=</span><span style="color:#074726; ">text</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>文字輸入方塊</td>
+              <td>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">textarea</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;/</span><span style="color:#333385; ">teatarea</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+              </td>
+            </tr>
+            <tr>
+              <td>下拉式選項</td>
+              <td>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">select</span><span style="color:#0057a6; ">&gt;</span>
+　 <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">option</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">select</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+              </td>
+            </tr>
+            <tr>
+              <td>多選核取方塊</td>
+              <td>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">input</span><span style="color:#474796; "> </span><span style="color:#074726; ">type</span><span style="color:#308080; ">=</span><span style="color:#474796; ">checkbox</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+              </td>
+            </tr>
+            <tr>
+              <td>單選核取方塊</td>
+              <td>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">input</span><span style="color:#474796; "> </span><span style="color:#074726; ">type</span><span style="color:#308080; ">=</span><span style="color:#474796; ">radio</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+              </td>
+            </tr>
+            <tr>
+              <td>按鈕</td>
+              <td>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">input</span><span style="color:#474796; "> </span><span style="color:#074726; ">type</span><span style="color:#308080; ">=</span><span style="color:#474796; ">submit</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">input</span><span style="color:#474796; "> </span><span style="color:#074726; ">type</span><span style="color:#308080; ">=</span><span style="color:#474796; ">reset</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">input</span><span style="color:#474796; "> </span><span style="color:#074726; ">type</span><span style="color:#308080; ">=</span><span style="color:#474796; ">button</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+              </td>
+            </tr>
+          </table>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">分割視窗</span>
+        <div>
+          <pre>
+frameset 不可以和 body.../body 同時存在，同時存在時那一個寫在前在前，哪一個生效。
+          </pre>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">frameset</span><span style="color:#474796; "> </span><span style="color:#074726; ">rows</span><span style="color:#308080; ">=</span><span style="color:#008c00; ">20%</span><span style="color:#474796; ">,</span><span style="color:#008c00; ">20%</span><span style="color:#474796; ">,</span><span style="color:#008c00; ">60%</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">frameset</span><span style="color:#474796; "> </span><span style="color:#074726; ">cols</span><span style="color:#308080; ">=</span><span style="color:#008c00; ">20%</span><span style="color:#474796; ">,</span><span style="color:#008c00; ">200</span><span style="color:#474796; ">,</span><span style="color:#008c00; ">1</span><span style="color:#474796; ">*,</span><span style="color:#008c00; ">1</span><span style="color:#474796; ">*</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">自訂網址前小icon</span>
+        <div>
+          <pre>
+*.ico
+16 pixels*16 pixels
+取名為favicon放在網站的根目錄
+          </pre>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">link</span><span style="color:#474796; "> </span><span style="color:#074726; ">rel</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"shortcut icon"</span><span style="color:#474796; "> </span><span style="color:#074726; ">href</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"./favicon.ico"</span><span style="color:#474796; "> </span><span style="color:#0057a6; ">/&gt;</span>
+</pre>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">其他</span>
+        <div>
+
+<pre style="color:#000020;background:#f6f8ff;">注解：<span style="color:#595979; ">&lt;!-- This is a comment --&gt;</span>
+</pre>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">SEO</span>
+        <div>
+          <pre>
+搜尋引擎最佳化（search engine optimization）
+共創三贏（搜尋引擎、用戶、網站）
+提高網站的搜尋引擎排名
+搜尋引擎變換搜尋排名演算法規則>網站掉排名>失去網站的存取流量
+
+在標題簽裡的文字，如<span style="color:#000020;background:#f6f8ff;"> <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">h1</span><span style="color:#0057a6; ">&gt;</span>引擎<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">h1</span><span style="color:#0057a6; ">&gt;</span></span>
+域名，如 wikipedia.org
+統一資源定位符（URL）下屬的目錄與檔名，如 http://zh.wikipedia.org/wiki/Seo
+關鍵字密度
+關鍵字接近度，如 '軟盤、軟碟' '硬盤、硬碟'
+圖形連結的 Alt 屬性，如
+<span style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">img</span><span style="color:#474796; "> </span><span style="color:#074726; ">src</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">".../powerby_mediawiki_88x31.png"</span><span style="color:#474796; "> </span><span style="color:#074726; ">alt</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"MediaWiki"</span><span style="color:#474796; "> </span><span style="color:#0057a6; ">/&gt;</span>
+</span>
+但是經過多年的搜尋引擎演算法的調整，現在較重要的影響標籤為：
+<span style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">title</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">meta</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">h1</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">img</span><span style="color:#0057a6; ">&gt;</span></span>
+中的 alt屬性
+
+高品質網站通常可以獲得優秀的搜尋排名
+即向用戶提供優質有用，而且獨特的資料，以內容行銷的方法，
+軟性地吸引潛在的客戶，自自然然地找到你的網頁。
+
+<hr>
+黑帽
+垃圾索引（Spamdexing）
+斗蓬法（cloaking）/關鍵字隱密字 （hidden text with keyword stuffing）/
+橋頁（doorway pages）/連結農場（link farm）/付費連結（paid link）
+
+白帽 (& 站內優化（On-page SEO）站外優化（Off-page SEO）)
+根據搜尋引擎所提出的最佳化方針規範，發現並糾正錯誤，
+從網站框架、關鍵字、網站內容、外連等各方面。合理最佳化網站，提高使用者體驗
+
+<hr>
+On-page SEO
+►關鍵字研究(在每頁使用一個短、獨特和相關的標題。替換掉隱晦的字眼。
+使用合理大小、準確描述的匯標，而不過度使用關鍵字、驚嘆號、或不相關標題術語。)
+►內容更新(原創內容)
+►圖片優化
+► Meta Title 和 Meta description
+►網站架構(注意網址字眼)
+►行動版本
+►網頁速度
+►https 和 SSL憑證(安全性)
+►善用內部連結(不可被搜尋引擎認定為優化過度)
+
+
+Off-page SEO
+►信任度 TrustRank
+►外部反向連結
+►個人因素(意圖行銷，增加接觸特定受眾的機會)
+►社群媒體(來自誰的分享佔據不同的重要性)
+
+          </pre>
+        </div>
+      </li>
+
+    </ul>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>js2</title>
+  </head>
+  <body>
+
+  </body>
+  <script>
+
+   // 1.Excution Stack
+   // 2.VO-Variable Object
+   // 3.Hoisting
+   // 4.Scope & ScopeChain
+   // 5.This Variable
+
+   // javascript engine :
+   // -> Parser 解析器 -> 轉換成機械碼 010101100 -> 運行我們的代碼
+
+   //================== Excution Stack ====================
+
+   //excution stack的列隊，一次執行一個function，先執行頂部的，執行完刪除，繼續下一層任務。
+   //所有function可以調用global excution context的變量，但是在global excution context中無法調用function中的變量，
+
+   // Global excution context
+   var name = 'Jerry'; //全局變量
+
+   // Excution context
+   function first(){
+     var a = 'Punch';
+     second();
+     console.log(name+a);
+   }
+
+   // Excution context
+   function second(){
+     var b = 'Beat';
+     third();
+     console.log(name+b);
+   }
+
+   // Excution context
+   function third(){
+     var c = 'Kick';
+     console.log(name+c);
+   }
+
+   first();
+
+   //================== VO-Variable Object ====================
+
+   // Excution context的變量
+
+   // 1.創建
+   //
+   //   初始化空間 - Scope chain
+   //   創建 VO - Variable Object(變量對象)
+   //
+   //     function(arguments object) <-function中的參數
+   //     掃描function - pointer
+   //     掃描variable - undefined
+   //
+   //   this variable
+   //
+   // 2.運行
+   //
+   //   進行逐行運行
+
+  function foo(i){
+    var a = 'hello';
+    var b = function privateB(){
+
+    };
+    function c(){
+
+    }
+  }
+
+  foo(22);
+
+  // // function 創建階段
+  // fooExcutionContext = {
+  //   scopeChain:{...},
+  //   variableObject:{
+  //     arguments:{
+  //       0:22,
+  //       length:1
+  //     }
+  //     i: 22,
+  //     c: pointer to function c(),
+  //     a: undefined,
+  //     b: undefined,
+  //   }
+  // }
+  //
+  // this:{...}
+  //
+  // // function 運行階段
+  // fooExcutionContext = {
+  //   scopeChain:{...},
+  //   variableObject:{
+  //     0:22,
+  //     length:1
+  //   }
+  //   i: 22,
+  //   c: pointer to function c(),
+  //   a: 'hello',
+  //   b: pointer to function privateB(),
+  // }
+  //
+  // this:{...}
+
+  //================== Hoisting ====================
+
+
+  sum(6,6);
+  function sum(a,b){
+    console.log(a+b);
+  }
+
+  // sumFunc(6,4);
+  // var sumFunc = function sum(a,b){
+  //   console.log(a+b);
+  // }
+  // // sumFunc(6,4);
+
+  console.log(age);
+  var age = 28;
+  console.log(age);
+
+  function foo(){
+    var age = 65;
+    console.log(age);
+  }
+  foo(); //function foo 裡的age 65
+  console.log(age); // function foo外的age 28
+
+  //================== Scope & ScopeChain ====================
+
+  // // Global scope [VOglobal]
+  // var a = 'Punch';
+  // first();
+  //
+  // // first() scope [VO1]+[VOglobal]
+  // function first(){
+  //   var b = 'Beat';
+  //   second();
+  //   // second() scope [VO2]+[VO1]+[VOglobal]
+  //   function second(){
+  //     var c = 'Kick';
+  //     console.log(a+b+c);
+  //   }
+  // }
+
+  // Global scope [VOglobal]
+  var a = 'Punch';
+  first();
+
+  // first() scope [VO1]+[VOglobal]
+  function first(){
+    var b = 'Beat';
+    second();
+    // second() scope [VO2]+[VO1]+[VOglobal]
+    function second(){
+      var c = 'Kick';
+      third();
+    }
+  }
+
+  function third(){
+    var d = 'Bang';
+    console.log(a+d);
+    // console.log(a+b+c+d);
+  }
+
+  //================== This Variable ====================
+
+  // global object - 全局對象
+  // console.log(this);
+
+  //當我們使用function,'this'就會指向global object
+  // function thisFunc(){
+  //   console.log(this);
+  // }
+  // thisFunc();
+
+  //當我們使用method(object裡的function)時，'this'就會指向當前object
+  var jerry ={
+    name:'Jerry',
+    age:33,
+    calculate:function yearOfBirth(){
+      console.log(this);
+      console.log(2020 - this.age);
+      function innerFunction(){
+        console.log(this);
+      }
+      innerFunction();
+    }
+  }
+  jerry.calculate();
+
+  var Lin = {
+    name:'Lin',
+    age:18,
+  }
+  Lin.calculate = jerry.calculate;
+  Lin.calculate();
+
+
+  </script>
+
+</html>

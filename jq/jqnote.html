@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery筆記</title>
+  </head>
+  <style media="screen">
+
+      ul{
+        list-style: none;
+        width: 700px;
+        margin: auto;
+      }
+
+      ul li{
+        width: 700px;
+        border: solid;
+        border-width: 1px 1px 0 1px;
+      }
+
+      ul>li:last-child{
+        border-bottom: 1px solid;
+      }
+
+      .groupTitle{
+        padding: 10px;
+        display: block;
+        background-color: rgba(205, 205, 205, 0.56);
+        text-align: center;
+      }
+
+      div{
+        border-top: 1px solid;
+        padding: 1px 20px 1px;
+      }
+
+      table {
+        margin: 50px auto;
+        width: 90%;
+        border-collapse:collapse;
+        border: 1px solid;
+      }
+
+      th,td{
+        padding: 5px;
+        width: 50%;
+        border:1px solid black;
+      }
+
+      pre {
+        font-size: 16px;
+        line-height: 30px;
+      }
+
+      img{
+        width: 100%;
+      }
+
+  </style>
+  <body>
+
+    <ul class="parentWrap">
+
+      <li class="menuGroup">
+        <span class="groupTitle">jQuery筆記</span>
+        <div>
+          <p>導入jQuery</p>
+
+<span style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">head</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#474796; "> </span><span style="color:#074726; ">type</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"text/javascript"</span><span style="color:#474796; "> </span><span style="color:#074726; ">src</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"jquery.min.js"</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#0057a6; ">&gt;</span>
+</span>
+
+          <p>或是用CDN</p>
+
+<span style="color:#000020;background:#f6f8ff;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#474796; "> </span><span style="color:#074726; ">src</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">head</span><span style="color:#0057a6; ">&gt;</span>
+</span>
+
+          <p>
+            其他函數功能加寫在< script >內
+          </p>
+
+          <p>
+            入口函數的標準寫法(不一定要寫，若< script >在文檔後可不寫)
+          </p>
+
+<pre style="color:#000020;background:#f6f8ff;">$<span style="color:#308080; ">(</span>document<span style="color:#308080; ">)</span><span style="color:#308080; ">.</span>ready<span style="color:#308080; ">(</span><span style="color:#200080; font-weight:bold; ">function</span><span style="color:#308080; ">(</span><span style="color:#308080; ">)</span><span style="color:#406080; ">{</span><span style="color:#200080; font-weight:bold; ">alert</span><span style="color:#308080; ">(</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">hehe</span><span style="color:#800000; ">"</span><span style="color:#308080; ">)</span><span style="color:#406080; ">;</span><span style="color:#406080; ">}</span><span style="color:#308080; ">)</span><span style="color:#406080; ">;</span>
+</pre>
+
+          <p>
+            什麼選擇器，什麼事件，有什麼效果
+          </p>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">概念</span>
+        <div>
+          <pre>
+1. 為什麼要學jquery ？
+   簡單，沒有相容性問題
+
+2. 什麼是jquery？
+   js函式庫，就是js檔，裡面有一大堆的方法
+
+3. 使用jquery的步驟：
+   1. 引入jquery文件 2. 入口函數 功能實現
+
+4. 版本：
+   1.x 2.x 3.x      壓縮版和未壓縮版
+
+5. 入口函數：
+   $(document).ready(function)  $(function(){})
+
+6. jQuery物件與DOM物件
+   區別：方法不能混用
+        js是什麼？ js是一門程式設計語言
+        jq僅僅是基於js的一個函示庫，可理解為就是開發js的一個工具。
+   如何互相調用： DOM-->jq   $  /  jq-->dom  [0]  get(0)
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">$的實質：function</span>
+        <div>
+          <pre>
+console.log($ === jQuery);
+  $(function () {
+
+  });
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">選擇器</span>
+        <div>
+          <pre>
+基本
+element/ class / id
+$(“s1,s2”) //聯集
+$(“s1s2”) //交集
+層級
+$(“s1 s2”) //後代
+$(“s1>s2”) //子代
+過濾
+:odd / :even / :eq
+:first/ :last/ :gt/ :lt
+挑選
+children()/find()/parent()/siblings()/next()/prev()
+//index()：當前元素在同層的索引
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">1. 操作樣式</span>
+        <div>
+          <pre>
+1.1 css操作
+設置
+css(name,value)
+css({A:a,B:b,C:c})
+取得值
+css(name)
+
+1.2 class操作
+addClass(name)
+removeClass(name)
+hasClass(name)      toggleClass(name)
+
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">2. 操作屬性</span>
+        <div>
+          <pre>
+2.1 attr
+2.2 prop
+布林類型的屬性，disabled，selected，checked
+2.3 removeAttr(name)
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">3. 動畫</span>
+        <div>
+          <pre>
+3.1 三組基本動畫
+show/hide
+slideDown/slideUp/slideToggle
+fadeIn/fadeOut/fadeToggle
+3.2 自訂動畫
+animate(prop, [speed], [swing/linear], [callback])
+3.3 停止動畫
+stop
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">4. 操作節點</span>
+        <div>
+          <pre>
+4.1創建
+$("<span></span>")
+4.2添加
+append appendTo prepend prependTo after before
+empty/remove/clone
+
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">特殊的屬性操作</span>
+        <div>
+          <pre>
+val()
+text() 與 html()
+width height
+scrollTop scrollLeft
+offset position
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">事件</span>
+        <div>
+          <pre>
+註冊事件  on
+on("click", function(){})
+on("click", "p", function(){})
+
+off() off("click")
+click()  trigger("click")
+
+e.stopPropagation()
+e.preventDefault()
+return false;
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">補充</span>
+        <div>
+          <pre>
+鏈式程式設計：end()
+each
+$.noConflict();
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">正規表達式</span>
+        <div>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#200080; font-weight:bold; ">var</span> string <span style="color:#308080; ">=</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">Hello jeRrY! you Egghead!</span><span style="color:#800000; ">"</span><span style="color:#406080; ">;</span>
+
+    <span style="color:#595979; ">// 正規表達式 Regular Expression</span>
+    <span style="color:#595979; ">// var regex = /Jerry/;</span>
+    <span style="color:#595979; ">// var regex = /Jerry/i;</span>
+
+    <span style="color:#200080; font-weight:bold; ">var</span> regex <span style="color:#308080; ">=</span><span style="color:#1060b6; "> </span><span style="color:#800000; ">/</span><span style="color:#1060b6; ">e</span><span style="color:#800000; ">/</span><span style="color:#200080; font-weight:bold; ">g</span><span style="color:#406080; ">;</span>
+
+    <span style="color:#200080; font-weight:bold; ">var</span> result <span style="color:#308080; ">=</span> string<span style="color:#308080; ">.</span><span style="color:#200080; font-weight:bold; ">match</span><span style="color:#308080; ">(</span>regex<span style="color:#308080; ">)</span><span style="color:#406080; ">;</span>
+
+    <span style="color:#200080; font-weight:bold; ">alert</span><span style="color:#308080; ">(</span>result<span style="color:#308080; ">)</span><span style="color:#406080; ">;</span>
+</pre>
+          <p>
+            (結果是 e,e,e )
+          </p>
+          <pre>
+<a href="jQuery4-Regular Expression.html">連結</a>
+          </pre>
+
+<pre style="color:#000020;background:#f6f8ff;"><span style="color:#200080; font-weight:bold; ">function</span> isValidEmailAddress<span style="color:#308080; ">(</span>emailAddress<span style="color:#308080; ">)</span> <span style="color:#406080; ">{</span>
+
+          <span style="color:#200080; font-weight:bold; ">var</span> pattern <span style="color:#308080; ">=</span><span style="color:#1060b6; "> </span><span style="color:#800000; ">/</span><span style="color:#308080; ">^</span><span style="color:#0f69ff; ">\b</span><span style="color:#308080; ">[</span><span style="color:#1060b6; ">A</span><span style="color:#308080; ">-</span><span style="color:#1060b6; ">Z0</span><span style="color:#308080; ">-</span><span style="color:#1060b6; ">9-</span><span style="color:#308080; ">]</span><span style="color:#308080; ">+</span><span style="color:#1060b6; ">@</span><span style="color:#308080; ">[</span><span style="color:#1060b6; ">A</span><span style="color:#308080; ">-</span><span style="color:#1060b6; ">Z0</span><span style="color:#308080; ">-</span><span style="color:#1060b6; ">9</span><span style="color:#308080; ">]</span><span style="color:#308080; ">+</span><span style="color:#0f69ff; ">\.</span><span style="color:#1060b6; ">com</span><span style="color:#0f69ff; ">\b</span><span style="color:#800000; ">/</span><span style="color:#200080; font-weight:bold; ">i</span><span style="color:#406080; ">;</span>
+
+          <span style="color:#200080; font-weight:bold; ">return</span> pattern<span style="color:#308080; ">.</span><span style="color:#200080; font-weight:bold; ">test</span><span style="color:#308080; ">(</span>emailAddress<span style="color:#308080; ">)</span><span style="color:#406080; ">;</span>
+
+        <span style="color:#406080; ">}</span>
+</pre>
+          <p>
+            符合則傳回true
+          </p>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">Ajax</span>
+        <div>
+            <pre style="color:#000020;background:#f6f8ff;"><span style="color:#308080; ">&lt;</span>script type<span style="color:#308080; ">=</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">text/javascript</span><span style="color:#800000; ">"</span><span style="color:#308080; ">&gt;</span>
+
+                  $<span style="color:#308080; ">.</span>ajax<span style="color:#308080; ">(</span><span style="color:#406080; ">{</span>
+
+                    url<span style="color:#406080; ">:</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">test.html</span><span style="color:#800000; ">"</span>
+
+                  <span style="color:#406080; ">}</span><span style="color:#308080; ">)</span><span style="color:#308080; ">.</span>done<span style="color:#308080; ">(</span><span style="color:#200080; font-weight:bold; ">function</span><span style="color:#308080; ">(</span>data<span style="color:#308080; ">)</span><span style="color:#406080; ">{</span>
+
+                    <span style="color:#595979; ">// alert(data)</span>
+
+                  <span style="color:#406080; ">}</span><span style="color:#308080; ">)</span><span style="color:#406080; ">;</span>
+
+                  <span style="color:#595979; ">// ==================================</span>
+
+                  $<span style="color:#308080; ">(</span>document<span style="color:#308080; ">)</span><span style="color:#308080; ">.</span>ready<span style="color:#308080; ">(</span><span style="color:#200080; font-weight:bold; ">function</span><span style="color:#308080; ">(</span><span style="color:#308080; ">)</span><span style="color:#406080; ">{</span>
+
+                    $<span style="color:#308080; ">(</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">button</span><span style="color:#800000; ">"</span><span style="color:#308080; ">)</span><span style="color:#308080; ">.</span>click<span style="color:#308080; ">(</span><span style="color:#200080; font-weight:bold; ">function</span><span style="color:#308080; ">(</span><span style="color:#308080; ">)</span><span style="color:#406080; ">{</span>
+
+                      $<span style="color:#308080; ">.</span>get<span style="color:#308080; ">(</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">test.html</span><span style="color:#800000; ">"</span><span style="color:#308080; ">,</span><span style="color:#200080; font-weight:bold; ">function</span><span style="color:#308080; ">(</span>data<span style="color:#308080; ">,</span>status<span style="color:#308080; ">)</span><span style="color:#406080; ">{</span>
+
+                        <span style="color:#595979; ">// alert(data);</span>
+
+                        <span style="color:#595979; ">// alert(status);</span>
+
+                        $<span style="color:#308080; ">(</span><span style="color:#800000; ">"</span><span style="color:#1060b6; ">#result</span><span style="color:#800000; ">"</span><span style="color:#308080; ">)</span><span style="color:#308080; ">.</span>html<span style="color:#308080; ">(</span>data<span style="color:#308080; ">)</span><span style="color:#406080; ">;</span>
+
+                      <span style="color:#406080; ">}</span><span style="color:#308080; ">)</span>
+                    <span style="color:#406080; ">}</span><span style="color:#308080; ">)</span>
+                  <span style="color:#406080; ">}</span><span style="color:#308080; ">)</span>
+            </pre>
+            <pre>
+<a href="../ajax/ajax.html">連結</a>
+            </pre>
+
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">jQuery UI</span>
+        <div>
+
+<pre style="color:#000020;background:#f6f8ff;overflow:scroll;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">link</span><span style="color:#474796; "> </span><span style="color:#074726; ">rel</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"stylesheet"</span><span style="color:#474796; "> </span><span style="color:#074726; ">href</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#474796; "> </span><span style="color:#074726; ">type</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"text/javascript"</span><span style="color:#474796; "> </span><span style="color:#074726; ">src</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#474796; "> </span><span style="color:#074726; ">type</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"text/javascript"</span><span style="color:#474796; "> </span><span style="color:#074726; ">src</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+<pre>
+<a href="../jqueryui/jQueryUI0-resizable-draggable-droppable.html">resizable-draggable-droppable</a>
+<a href="../jqueryui/jQueryUI1-autocomplete.html">autocomplete</a>
+<a href="../jqueryui/jQueryUI2-accordion.html">accordion</a>
+</pre>
+
+        </div>
+      </li>
+
+    </ul>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+      <title>自定義動畫</title>
+      <meta charset="utf-8">
+      <style media="screen">
+
+
+      div{
+        width: 100px;
+        height: 100px;
+        margin-top: 50px;
+        position: relative;
+      }
+
+      #box1{
+
+
+        background-color: pink;
+
+
+      }
+
+      #box2{
+
+        background-color: rgba(24, 127, 212, 0.48);
+
+      }
+
+      #box3{
+
+        background-color: rgba(179, 231, 32, 0.5);
+
+      }
+
+
+      </style>
+
+  </head>
+  <body>
+
+    <input type="button" value="開始">
+    <input type="button" value="重來">
+
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+
+
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+
+        $(function(){
+          $("input").eq(0).click(function(){
+            $("#box1").animate({left:800});
+            $("#box2").animate({left:800},1000,"swing");
+            $("#box3").animate({left:800},1000,"linear",function(){
+              console.log("hahaha");
+            });
+          });
+
+          $("input").eq(1).click(function(){
+            $("div").stop().css({left:0});
+          });
+
+        });
+
+
+    </script>
+  </body>
+</html>

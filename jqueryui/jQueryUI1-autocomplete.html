@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+      <title>JQUI</title>
+      <meta charset="utf-8">
+
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+      <style>
+
+      </style>
+  </head>
+  <body>
+
+    <div class="ui-widget">
+      <label for="tags">請輸入您的內容: </label>
+      <input type="text" id="tags">
+    </div>
+
+    <script type="text/javascript">
+
+      $(function() {
+
+        var availableTags = [
+
+          "ActionScript",
+          "AppleScript",
+          "Asp",
+          "BASIC",
+          "C",
+          "C++",
+          "Clojure",
+          "COBOL",
+          "ColdFusion",
+          "Erlang",
+          "Fortran",
+          "Groovy",
+          "Haskell",
+          "Java",
+          "JavaScript",
+          "Lisp",
+          "Perl",
+          "PHP",
+          "Python",
+          "Ruby",
+          "Scala",
+          "Scheme"
+
+        ];
+
+        $("#tags").autocomplete({
+
+          source: availableTags
+
+        });
+      });
+
+    </script>
+
+
+  </body>
+</html>

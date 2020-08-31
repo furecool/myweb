@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>vue組件重要選項</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style media="screen">
+          .test{
+            width:100px;
+            height:100px;
+            background:red;
+            margin:10px;
+          }
+        </style>
+    </head>
+
+    <body>
+
+      <div class="view">
+          <div class="test" @click="run"></div>
+          <div class="test" @click="speak"></div>
+          <!-- 根據點擊次數i，顯示不同的內容 -->
+          <div class="test" @click="add">
+              {{strFn}}
+          </div>
+      </div>
+
+    </body>
+
+    <script type="text/javascript">
+
+        var app = new Vue({
+          el:".view",  //掛載點
+          data:{       //數據選項            
+            i:0
+          },
+          methods:{    //方法選項
+              run:function(){
+                alert("我不單單會跑，我還會飛。");
+              },
+              speak:function(){
+                alert("我會說話哦。");
+              },
+              add:function(){  //訪問數據選項中的內容
+                  this.i++;
+                  console.log(this.i);
+              }
+          },
+          computed:{   //計算屬性
+              strFn:function(){
+                if(this.i<=5){
+                  return"用點力...";
+                } else if(this.i<=10){
+                  return"沒吃飯嗎...";
+                } else if(this.i<=15){
+                  return"沒感覺...";
+                } else {
+                  return"麻木了...";
+                }
+              },
+          },
+          watch:{      //監聽屬性
+            i:function(newValue,oldValue){
+                console.log(newValue,oldValue);
+            }
+          }
+      });
+
+    </script>
+</html>

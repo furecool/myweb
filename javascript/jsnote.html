@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript筆記</title>
+  </head>
+  <style media="screen">
+
+      ul{
+        list-style: none;
+        width: 700px;
+        margin: auto;
+      }
+
+      ul li{
+        width: 700px;
+        border: solid;
+        border-width: 1px 1px 0 1px;
+      }
+
+      ul>li:last-child{
+        border-bottom: 1px solid;
+      }
+
+      .groupTitle{
+        padding: 10px;
+        display: block;
+        background-color: rgba(205, 205, 205, 0.56);
+        text-align: center;
+      }
+
+      div{
+        border-top: 1px solid;
+        padding: 1px 20px 1px;
+      }
+
+      table {
+        margin: 50px auto;
+        width: 90%;
+        border-collapse:collapse;
+        border: 1px solid;
+      }
+
+      th,td{
+        padding: 5px;
+        width: 50%;
+        border:1px solid black;
+      }
+
+      pre {
+        font-size: 16px;
+        line-height: 30px;
+      }
+
+      img{
+        width: 100%;
+      }
+
+  </style>
+  <body>
+
+    <ul class="parentWrap">
+
+      <li class="menuGroup">
+        <span class="groupTitle">JavaScript筆記</span>
+        <div>
+          <pre>
+一、
+1.輕量
+2.幾乎支援所有瀏覽器
+3.面向對向
+
+二、
+網站開發的三種核心技術
+1.html (提供內容)
+2.css (漂亮)
+3.javascript (能夠動態化)
+
+三、
+client的js
+sever端的js:node.js、angular、......
+
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">1.基礎</span>
+        <div>
+          <pre>
+變量類型
+變量特徵
+if
+switch
+function
+array
+object
+this
+for
+while,break,continue
+
+<a href="js1.html">連結</a>
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">2.運行原理</span>
+        <div>
+          <pre>
+1.Excution Stack
+2.VO-Variable Object
+3.Hoisting
+4.Scope & ScopeChain
+5.This Variable
+
+<a href="js2.html">連結</a>
+
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">骰子遊戲</span>
+        <div>
+          <pre>
+1.前置作業(設全局變數和其他元件的初始狀態)
+2.觸發事件按鈕
+2-1.如果在一局遊戲中
+2-1.a.骰子動起來
+2-1.b.在不同玩家回合
+2-1.c.如何結束遊戲，跳出一局
+2-2.如果不在一局遊戲中的話，呼叫重置遊戲function
+3.重置遊戲function
+4.任何時間點，點按重置遊戲按鈕
+
+<a href="dice-game/game.js">連結</a>
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">4.高級語法</span>
+        <div>
+          <pre>
+1.primitive & object
+2.inheritance繼承機制
+3.PrototypeChain
+4.直接繼承object
+5.function做參數的妙用
+6.function做function的返回值
+7.IIFE
+8.借用其他object的method
+9.局部變量 & 全局變量
+10.使變量的值不被改變
+
+<a href="js4.html">連結</a>
+
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">5.算總價(MVC)</span>
+        <div>
+          <pre>
+<a href="count-total/scripts/app.js">連結</a>
+          </pre>
+        </div>
+      </li>
+
+    </ul>
+
+
+
+  </body>
+</html>

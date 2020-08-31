@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>固定導覽列</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    .top {
+      background-color: rgb(150, 183, 255);
+      height: 168px;
+      width: 100%;
+    }
+
+    .nav {
+      background-color: rgb(80, 140, 250);
+      height: 83px;
+      /* //寬度是子元素撐開的，沒設的話，fixed後會塌陷 */
+      width: 100%;
+    }
+
+    .main {
+      background-color: rgb(204, 237, 255);
+      height: 2734px;
+      width: 100%;
+    }
+
+    .fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    p {
+      text-align: center;
+      font-size: 28px;
+    }
+  </style>
+
+  <script src="jquery-3.5.1.min.js"></script>
+  <script>
+    $(function () {
+
+      $(window).scroll(function () {
+        //判断卷去的高度超过topPart的高度
+        //1. 让navBar有固定定位
+        //2. 让mainPart有一个marginTop
+        if($(window).scrollTop() >= $(".top").height() ){
+          $(".nav").addClass("fixed");
+          $(".main").css("marginTop", $(".nav").height() );
+        }else {
+          $(".nav").removeClass("fixed");
+          $(".main").css("marginTop", 0);
+        }
+
+      });
+
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="top">
+  <p>( HEADER )</p>
+</div>
+<div class="nav">
+  <p>( NAV )</p>
+</div>
+<div class="main">
+  <p>START</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>^^</p><br><p>END</p><br>
+</div>
+
+</body>
+</html>

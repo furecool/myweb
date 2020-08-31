@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap筆記</title>
+  </head>
+  <style media="screen">
+
+    ul{
+      list-style: none;
+      width: 700px;
+      margin: auto;
+    }
+
+    ul li{
+      width: 700px;
+      border: solid;
+      border-width: 1px 1px 0 1px;
+    }
+
+    ul>li:last-child{
+      border-bottom: 1px solid;
+    }
+
+    .groupTitle{
+      padding: 10px;
+      display: block;
+      background-color: rgba(205, 205, 205, 0.56);
+      text-align: center;
+    }
+
+    div{
+      border-top: 1px solid;
+      padding: 1px 20px 1px;
+    }
+
+    table {
+      margin: 50px auto;
+      width: 90%;
+      border-collapse:collapse;
+      border: 1px solid;
+    }
+
+    th,td{
+      padding: 5px;
+      width: 50%;
+      border:1px solid black;
+    }
+
+    pre {
+      font-size: 16px;
+      line-height: 30px;
+    }
+
+    img{
+      width: 100%;
+    }
+
+  </style>
+  <body>
+
+    <ul class="parentWrap">
+
+      <li class="menuGroup">
+        <span class="groupTitle">Bootstrap筆記(整理自網路)</span>
+        <div>
+          <p>
+            Bootstrap是目前響應式及行動裝置網頁設計，最知名的框架，提供了包含HTML、CSS及JS等內容的框架
+          </p>
+          <pre>
+避免重複動作，可以應用一些現成的功能
+很快就可以應用較複雜的響應式設計
+不同開發者可以取得應用及解讀程式碼的一致性
+Bootstrap也提供了一些速成樣板
+確保跨瀏覽器的閱讀相容性
+          </pre>
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">導入</span>
+        <div >
+
+          <pre>
+CSS — bootstrap.css
+JavaScript — jquery.js
+           — popper.js
+           — bootstrap.js
+          </pre>
+
+          <p>
+            <img src="1.jpg" alt="">
+            <img src="2.jpg" alt="">
+          </p>
+
+<pre style="color:#000020;background:#f6f8ff;overflow: scroll;"><span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">head</span><span style="color:#0057a6; ">&gt;</span>
+  <span style="color:#595979; ">&lt;!-- Bootstrap CSS --&gt;</span>
+    <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">link</span><span style="color:#474796; "> </span><span style="color:#074726; ">rel</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"stylesheet"</span><span style="color:#474796; "> </span><span style="color:#074726; ">href</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"</span><span style="color:#474796; "> integrity</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"</span><span style="color:#474796; "> crossorigin</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"anonymous"</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">head</span><span style="color:#0057a6; ">&gt;</span>
+
+<span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">body</span><span style="color:#0057a6; ">&gt;</span>
+	  <span style="color:#595979; ">&lt;!-- Optional JavaScript --&gt;</span>
+    <span style="color:#595979; ">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span>
+    <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#474796; "> </span><span style="color:#074726; ">src</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"https://code.jquery.com/jquery-3.4.1.slim.min.js"</span><span style="color:#474796; "> integrity</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"</span><span style="color:#474796; "> crossorigin</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"anonymous"</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#0057a6; ">&gt;</span>
+    <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#474796; "> </span><span style="color:#074726; ">src</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"</span><span style="color:#474796; "> integrity</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"</span><span style="color:#474796; "> crossorigin</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"anonymous"</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#0057a6; ">&gt;</span>
+    <span style="color:#0057a6; ">&lt;</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#474796; "> </span><span style="color:#074726; ">src</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"</span><span style="color:#474796; "> integrity</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"</span><span style="color:#474796; "> crossorigin</span><span style="color:#308080; ">=</span><span style="color:#1060b6; ">"anonymous"</span><span style="color:#0057a6; ">&gt;</span><span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">script</span><span style="color:#0057a6; ">&gt;</span>
+<span style="color:#0057a6; ">&lt;/</span><span style="color:#200080; font-weight:bold; ">body</span><span style="color:#0057a6; ">&gt;</span>
+</pre>
+
+        </div>
+      </li>
+
+      <li class="menuGroup">
+        <span class="groupTitle">常用</span>
+        <div>
+          <table>
+            <tr>
+              <td>
+                <p>Grid</p>
+                <p>12欄位概念</p>
+                <p>斷點概念(xs sm md lg)</p>
+              </td>
+              <td>
+                <p>Carousel</p>
+                <p>slides</p>
+                <p>controller</p>
+                <p>indicator</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <p>Nav</p>
+                <p>nav-item / nav-link</p>
+                <p>navbar-toggler</p>
+              </td>
+              <td>
+                <p>Modals</p>
+                <p>dialog</p>
+                <p>content(head/body/footer)</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <p>Form</p>
+                <p>各種表單型態</p>
+              </td>
+              <td>
+                <p>Jumbotron</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </li>
+
+    </ul>
+
+
+
+  </body>
+</html>

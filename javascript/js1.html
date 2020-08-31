@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>js1</title>
+  </head>
+  <body>
+
+
+
+    <script>
+
+      // 變量類型
+      // 變量特徵
+      // if
+      // switch
+      // function
+      // array
+      // object
+      // this
+      // for
+      // while,break,continue
+
+
+      // ===================簡介====================
+      //
+      // 一、
+      // 1.輕量
+      // 2.幾乎支援所有瀏覽器
+      // 3.面向對向
+      //
+      // 二、
+      // 網站開發的三種核心技術
+      // 1.html (提供內容)
+      // 2.css (漂亮)
+      // 3.javascript (能夠動態化)
+      //
+      // 三、
+      // client的js
+      // sever端的js:node.js、angular、......
+
+      //===================變量類型====================
+
+      //1.字串
+      //2.數字
+      //3.布林
+      //4.undefine
+      //5.null
+
+      console.log('hello world!'); // hello world!是字串，要加引號
+
+      var name = 'Jerry'; // Jerry是字串，加引號
+      console.log(name); //因為name是變量，是DOM元素，不用引號
+
+      var age = 32; //數字不用引號
+      console.log(age);
+
+      var isMale = true; // boolean
+      console.log(isMale);
+
+      // undefine
+
+      // null
+
+      //====================變量特徵===================
+
+      console.log(name + age);  // 輸出字串
+      console.log(age + age);  // 輸出相加後的數字
+      console.log(name + ' is ' + age + ' years old. ');
+
+      age = 'thirty three';
+      console.log(name + ' is ' + age + ' years old. ');
+
+      //==================If語句=====================
+
+
+      // var isMale = false;
+
+      if(isMale){ //布林值判斷
+        console.log('yes');
+      }else{
+        console.log('no');
+      }
+
+      var isFemale = 'no';
+
+      if(isFemale == 'yes'){ //雙等號判斷
+        console.log('she is female.');
+      }else{
+        console.log('TA is not female.');
+      }
+
+      if(23 === '23'){ //三等號判斷，使用雙等號會得到equal
+        console.log('equal');
+      }else{
+        console.log('unequal');
+      }
+
+      var number = 20;
+
+      if(number < 20){ //範圍表達式
+        //code
+      }else if(number > 30){
+        //code
+      }else{
+        //code
+      }
+
+      if (number > 20 && number < 30){ //範圍表達式 交集
+        //code
+      }
+
+      if (number < 18 || number > 65){ //範圍表達式 聯集
+        //code
+      }
+
+      if (!number){ //否定表示法，若number=true，!number則為false
+        //code
+      }
+
+      //==================switch語句=====================
+
+      var newCase = 'case 4'
+
+      switch(newCase){
+        case 'case 1':
+          console.log('that is case 1');
+          break;
+
+        case 'case 2':
+          console.log('that is case 2');
+          break;
+
+        case 'case 3':
+          console.log('that is case 3');
+          break;
+
+        default:
+          console.log('that is other case.');
+      }
+
+      //==================function=====================
+      //function可以有參數，可以沒有參數
+
+      //無參數
+      function myFirstFunction(){ //1.創立
+        console.log('that is my first function'); //2.定義
+      }
+      myFirstFunction(); //3.呼叫
+
+      //有參數
+      function sum(a,b){
+        var c = a+b;
+        console.log(c);
+      }
+      sum(3,4);
+      sum(4,4);
+
+      //有返回值
+      function returnFunction(a){
+        var b = a+5;
+        return b; //返回值
+      }
+
+      var result = returnFunction(10); //用返回值賦值
+      console.log(result);
+
+      //==================array數組=====================
+
+      var names = ['Jerry','Gin','Ken','Lin'];
+      var numbers = [1,2,3,4,5];
+      console.log(names);
+      console.log(names[0]); //數組的代碼從0開始
+
+      // 增加、刪減元素
+      names.push('furecool');
+      console.log(names);
+
+      names.pop();
+      console.log(names);
+
+      names.unshift('Jyyyin');
+      console.log(names);
+
+      names.shift();
+      console.log(names);
+      console.log(names.indexOf('Gin'));
+
+      names[0] = 'Che-Hsuan';
+      console.log(names);
+
+      //==================object=====================
+
+      //定義object
+      var furecool ={
+        name: 'Furecool',
+        lastName: 'Lin',
+        age: 33,
+        job: 'desperado',
+        family: ['Jyyyin','Gin','Red'], //加入數組
+        calculate: function yearOfBirth(myAge){ // 加入function
+          return 2020 - myAge;
+        }
+      }
+      console.log(furecool);
+      console.log(furecool.family[0]); //找數組
+      console.log(furecool.calculate(33)); //找function
+
+      furecool['name'] = 'Che-Hsuan'; //修改元素
+      console.log(furecool);
+      console.log(furecool.name); //找元素
+      console.log(furecool['name']); //也可以這樣找元素
+
+      furecool.name = 'Jerry'; //另一種修改元素的方法
+      console.log(furecool['name']);
+
+      //也可以這樣定義object
+      var superhero = new Object(); //做一個空的
+
+      superhero.name = 'Peter'; //再加東西進去
+      superhero.lastName = 'Parker';
+      superhero.age = 17;
+      console.log(superhero);
+
+      //==================this method=====================
+
+      var furecool ={
+        name: 'Furecool',
+        lastName: 'Lin',
+        age: 33,
+        job: 'desperado',
+        family: ['Jyyyin','Gin','Red'],
+        calculate: function yearOfBirth(){
+          this.yearOfBirth = 2020 - this.age;
+        }
+      }
+      furecool.calculate();
+      console.log(furecool);
+
+      //方便移植
+      var Tom ={
+        name: 'Tom',
+        lastName: 'Lin',
+        age: 17,
+        job: 'desperado',
+        family: ['Jyyyin','Gin','Red'],
+        calculate: function yearOfBirth(){
+          this.yearOfBirth = 2020 - this.age;
+        }
+      }
+      Tom.calculate();
+      console.log(Tom);
+
+      //==================for=====================
+
+      for(var i=0;i<=5;i++){
+        console.log(i);
+      }
+
+      var names = ['Jerry','Gin','Blue','Red','Deep'];
+
+      for(var i=0;i<=names.length-1;i++){
+        console.log(names[i]);
+      }
+
+      for(var i=names.length-1;i>=0;i--){ //倒序輸出
+        console.log(names[i]);
+      }
+      //==================while,break,continue=====================
+
+      //通常用while的情況比較多，但處理數組時常用for
+
+      var i=0;
+      while(i<=5){
+        console.log(i);
+        i++;
+      }
+
+      for(var i=0;i<=5;i++){
+        if(i===3){
+          break; //跳出循環
+        }
+        console.log(i);
+      }
+
+      for(var i=0;i<=5;i++){
+        if(i===3){
+          continue; //跳出此次，繼續運行下一個
+        }
+        console.log(i);
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    1.事件綁定 v-on
+    2.屬性綁定 v-bind :
+    3.樣式綁定 v-bind :
+ -->
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>vue模板指令學習2</title>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <style media="screen">
+        .show {
+          width:100px;
+          height:100px;
+          background: red;
+        }
+
+        .img-size {
+          width: 50px;
+        }
+
+        .view {
+          width: 300px;
+          height: 30px;
+          border: 1px solid gray;
+          margin: 20px auto;
+          line-height: 30px;
+          text-align: center;
+        }
+
+        .active {
+          background: red;
+          color: white;
+        }
+      </style>
+    </head>
+
+    <body>
+
+      <div id="app">
+
+        <!-- 1.事件綁定 v-on -->
+        <p class="show" v-on:click="speak"></p>
+        <p class="show" @click="speak"></p>
+
+        <!-- 2.屬性綁定 v-bind : -->
+        <img class="img-size" src="img/ppt.png">
+        <img class="img-size" v-bind:src="imgSite">
+        <img class="img-size" :src="imgSite">
+
+        <!-- 3.樣式綁定 v-bind : -->
+        <!-- isActive為true，給該div加個class叫active -->
+        <div class="view" v-bind:class="{active:isActive}">
+          {{message}}
+        </div>
+
+      </div>
+
+    </body>
+
+    <script type="text/javascript">
+      var app = new Vue({
+
+        el:"#app",
+        data:{
+
+          imgSite: 'img/safari.png',  //圖片位置
+          message: 'vue入門之模板指令學習',
+          isActive: true
+
+        },
+        methods:{  //方法
+
+          speak: function(){
+
+            alert("hello!!");
+
+          }
+        },
+      });
+    </script>
+
+</html>

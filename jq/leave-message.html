@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+      <title>發布留言</title>
+      <meta charset="utf-8">
+      <style media="screen">
+
+      .box{
+        width: 600px;
+        border: 1px solid black;
+        margin: 50px auto;
+        padding: 50px;
+      }
+
+      ul{
+        list-style: none;
+        width: 450px;
+        padding-left: 80px;
+      }
+
+      ul li {
+        line-height: 25px;
+        border-bottom: 1px dashed #cccccc;
+      }
+
+      textarea {
+        width: 450px;
+        height: 160px;
+        outline: none;
+        resize: none;
+      }
+
+      </style>
+
+  </head>
+  <body>
+
+    <div class="box">
+      <span>發佈留言</span>
+      <textarea name="" id="txt" cols="30" rows="10"></textarea>
+      <button id="btn">發佈</button>
+      <ul id="ul"></ul>
+    </div>
+
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+
+        $(function(){
+          $("#btn").click(function(){
+            $("<li></li>").text($("#txt").val()).prependTo("#ul");           
+            $("#txt").val("");
+          });
+        });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+      <title>圖片開展與復原</title>
+      <meta charset="utf-8">
+      <style media="screen">
+
+        #box{
+          width: 1090px;
+          height: 340px;
+          margin: 100px auto;
+          position: relative;
+          /* border: 1px solid grey; */
+          /* background-color: grey; */
+        }
+
+        ul{
+          margin: 0;
+          padding: 0;
+        }
+
+        #box li{
+          list-style: none;
+          width: 180px;
+          height: 340px;
+          float: left;
+        }
+
+      </style>
+
+  </head>
+  <body>
+
+    <div id="box">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+
+        $(function(){
+          var $li = $("#box li");
+          for(var i=0;i<$li.length;i++){
+            $li.eq(i).css("backgroundImage","url(img/1-"+(i+1)+".jpg)");
+          }
+
+          $li.mouseenter(function(){
+            $(this).stop().animate({width:750})
+            .siblings().stop().animate({width:66});
+          }).mouseleave(function(){
+            $li.stop().animate({width:180});
+          });
+
+
+        });
+
+    </script>
+  </body>
+</html>

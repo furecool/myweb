@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    方式一:通過script標籤直接引入
+        1.引入Vue庫
+        2.創建一個標籤
+        3.創建一個Vue對象
+-->
+
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>vue庫的引入</title>
+      <!-- 1.引入Vue庫 -->
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <!-- 2.創建一個標籤 -->
+        <div id="app">
+          {{message}}
+          {{haha}}
+          {{hehe}}
+        </div>
+
+    </body>
+
+      <script type="text/javascript">
+
+        // 3.創建一個Vue對象
+         var app = new Vue({
+           el:"#app",    //vue對象的掛載點
+           data: {       //自定義數據
+             message: "hello Vue!!",
+             haha:"哈哈!!",
+             hehe:"呵呵!!"
+           },
+         });
+
+      </script>
+
+</html>
