@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+      <title>天氣預報網站</title>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <style>
+
+          .heroImage{
+            background-image: url("https://picsum.photos/id/190/768/");
+            background-size: cover;
+            border-radius: 0;
+            height: 100vh;
+            margin: 0;
+          }
+          .alert{
+            display: none;
+          }
+
+      </style>
+  </head>
+  <body>
+
+    <div class="jumbotron heroImage text-center">
+      <div class="container">
+
+        <h1 class="display-4 text-light mt-5">天氣預報</h1>
+
+        <p class="lead text-light">輸入你想查詢的<strong class="text-warning">城市名稱</strong></p>
+
+        <!-- 輸入框 -->
+        <form>
+          <div class="form-group col-md-7 mx-auto">
+            <input id="city" type="text" name="city" class="form-control" placeholder="例如:London,Paris,Taipei,......">
+          </div>
+        </form>
+
+        <!-- 按鈕 -->
+        <button id="findMyWeather" type="submit" name="button" class="btn btn-warning btn-lg">查 詢</button>
+
+        <!-- 可能的三種結果 -->
+        <div id="result" class="col-8 mx-auto mt-3">
+          <div id="success" class="alert alert-success">查詢成功.</div>
+          <div id="fail" class="alert alert-danger">無法查找，重新試試.</div>
+          <div id="noCity" class="alert alert-danger">請輸入城市名稱!</div>
+        </div>
+
+      </div>
+    </div>
+
+    <script type="text/javascript">
+
+        $("#findMyWeather").click(function(event){
+
+          event.preventDefault(); // 暫停發送請求，先處理有沒有輸入的問題
+
+          $(".alert").hide(); //重置 alert欄
+
+          if($("#city").val() != ""){
+
+            // 用 $.get變量提交到 scraper這個文件去處理，定義 city這個參數，第二個參數是要從 server獲得一些數據，放到 callback function(server會把結果用 data的方式，作為參數返回到用戶)裡
+            $.get("scraper.php?city="+$("#city").val(), function(data){
+              if(data == ""){
+                $("#fail").fadeIn();
+              } else {
+                $("#success").html(data).fadeIn();
+              }
+            });
+
+          }else{
+            $("#noCity").fadeIn();
+          }
+
+        });
+
+    </script>
+
+  </body>
+</html>
