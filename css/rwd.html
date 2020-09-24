@@ -8,12 +8,16 @@
   <script src="js/all.js"></script>
   <title>simple rwd</title>
   <style type="text/css">
+
       *{
         margin: 0;
         padding: 0;
         list-style: none;
       }
       .header{
+        position: fixed;
+        width: 100%;
+
         display: flex;
         padding: 0px 10px;
         background-color: #000;
@@ -29,23 +33,43 @@
       text-align: center;
       width: 100%;
       }
-      .nav{
+      .menu{
+        position: absolute;
+        top: 52px;
+        left: 0;
+        right: 0;
         text-align: right;
         width: 100%;
         font-size: 0;
         max-height: 0;
         overflow: hidden;
+        background-color: #000;
       }
-      .nav a{
+      .menu a{
         font-size: 16px;
         color: #fff;
         text-decoration: none;
         display: inline-block;
-        line-height: 52px;
+        line-height: 70px;
         padding: 0 10px;
       }
-      .nav a:hover{
+      .menu a:hover{
         background-color: #fa0;
+      }
+      .hamburger{
+        position: absolute;
+        right: 30px;
+
+        display: block;
+        text-decoration: none;
+        font-size: 50px;
+        color: #fa0;
+      }
+      .hamburger:active{
+        color: #986500;
+      }
+      .show-menu{
+      max-height: 500px;
       }
       img{
         vertical-align: bottom;
@@ -94,14 +118,7 @@
       .service .item{
         margin: 0;
       }
-      .hamburger{
-        display: block;
-        text-decoration: none;
-        font-size: 50px;
-      }
-      .show-menu{
-      max-height: 300px;
-      }
+
 
       @media screen and (min-width:768px) {
         .item-group{
@@ -126,15 +143,21 @@
           display: none;
         }
         .header ul a{
-          display: inline;
-          text-align: right;
-          width: 100%;
+          display: inline-block;
+          text-align: center;
+          width: 90px;
         }
-        .nav{
+        .menu{
           text-align: right;
           width: 100%;
           font-size: 0;
-          max-height: 300px;
+          max-height: 500px;
+          position: relative;
+          top: 0;
+          right: 0;
+        }
+        .menu a{
+          line-height: 52px;
         }
       }
 
