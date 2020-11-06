@@ -47,7 +47,8 @@ render();
 function render(){
 
   // ====== 使用$.get()傳收scraper.php的json資料 ======
-  const jsonUrl = 'http://interview.tripresso.com/tour/search?page=1&row_per_page=10&sort=rating_desc';
+  const jsonUrl = 'http://interview.tripresso.com/tour/search?';
+  // page=1&row_per_page=10&sort=rating_desc
 
   $.get(jsonUrl,
         {page:$("#page").val(), row_per_page: $("#row_per_page").val(), sort: $("select[name='sort']").val()},
