@@ -3,9 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
     <link rel="shortcut icon" href="./favicon.ico" />
-    <title>網頁前端學習</title>
+    <title>做做網頁</title>
     <style>
 
     body {
@@ -24,22 +27,29 @@
     .card{
       width: 19rem;
     }
-
+    .card-body a img {
+      margin: 10px 0;
+      opacity: 50%;
+    }
+    .card-body a img:hover {
+      opacity: 100%;
+    }
+    
     </style>
 
   </head>
   <body>
 
     <div class="jumbotron heroImage text-center">
-      <h1 class="text-light display-4">網頁前端學習</h1>
-      <p class="text-light lead">關於學習 html、css、javascript 等技術所做的網頁以及筆記</p>
+      <h1 class="text-light display-4">做做網頁</h1>
+      <p class="text-light lead">關於前端技術以及筆記</p>
     </div>
 
     <div class="container text-center my-5">
 
       <div class="row ">
 
-          <div class="card">
+          <div class="card text-white bg-dark">
             <div class="card-body">
               <h5 class="card-title">HTML</h5>
               <a href="html/htmlnote.html" class="btn btn-info">筆記</a>
@@ -47,23 +57,23 @@
           </div>
 
 
-          <div class="card">
+          <div class="card text-white bg-dark">
             <div class="card-body">
               <h5 class="card-title">CSS</h5>
               <a href="css/cssnote/cssnote.html" class="btn btn-info">筆記</a>
-              <a href="css/css.html" class="btn btn-warning">切eBay首頁</a>
-              <a href="css/rwd.html" class="btn btn-warning">簡易RWD</a>
+              <a href="css/css.html" title="切eBay首頁練習"><img src="css01.png" class="card-img"></a>
+              <a href="css/rwd.html" title="簡易RWD"><img class="card-img" src="css02.png" onmouseover="this.src='css02.gif';" onmouseout="this.src='css02.png';"></a>              
             </div>
           </div>
 
 
 
-          <div class="card">
+          <div class="card text-white bg-dark">
             <div class="card-body">
               <h5 class="card-title">Bootstrap</h5>
               <a href="bootstrap/bootstrapnote/bootstrapnote.html" class="btn btn-info">筆記</a>
-              <a href="bootstrap/bs1/bs1.html" class="btn btn-warning">網頁1</a>
-              <a href="bootstrap/bs2/bs2.html" class="btn btn-warning">網頁2</a>
+              <a href="bootstrap/bs1/bs1.html" title="Bootstrap1"><img class="card-img" src="bs01.png" onmouseover="this.src='bs01.gif';" onmouseout="this.src='bs01.png';"></a>
+              <a href="bootstrap/bs2/bs2.html" title="Bootstrap2"><img class="card-img" src="bs02.png" onmouseover="this.src='bs02.gif';" onmouseout="this.src='bs02.png';"></a>
             </div>
           </div>
 
@@ -71,74 +81,75 @@
       
 
 
-          <div class="card">
+          <div class="card text-white bg-dark">
             <div class="card-body">
               <h5 class="card-title">JavaScript</h5>
               <a href="javascript/jsnote.html" class="btn btn-info">筆記</a>
-              <a href="javascript/react-time.html" class="btn btn-warning">反應時間</a>
-              <a href="javascript/mouse.html" class="btn btn-warning">滑鼠座標</a>
-              <a href="javascript/dice-game/index.html" class="btn btn-warning">骰子遊戲</a>
-              <a href="javascript/count-total/index.html" class="btn btn-warning">算總價</a>
-              <a href="javascript/control-voice/index.html" class="btn btn-warning">控制聲音</a>
-              <a href="javascript/control-css/index.html" class="btn btn-warning">控制CSS</a>
+              <a href="javascript/react-time.html" title="反應時間"><img class="card-img" src="js01.png" onmouseover="this.src='js01.gif';" onmouseout="this.src='js01.png';"></a>
+              <a href="javascript/mouse.html" title="滑鼠座標"><img class="card-img" src="js02.png" onmouseover="this.src='js02.gif';" onmouseout="this.src='js02.png';"></a>
+              <a href="javascript/dice-game/index.html" title="骰子遊戲"><img class="card-img" src="js03.png" onmouseover="this.src='js03.gif';" onmouseout="this.src='js03.png';"></a>
+              <a href="javascript/count-total/index.html" title="算總價"><img class="card-img" src="js04.png" ></a>
+              <a href="javascript/control-voice/index.html" title="控制聲音"><img class="card-img" src="js05.png" ></a>
+              <a href="javascript/control-css/index.html" title="控制CSS"><img class="card-img" src="js06.png" onmouseover="this.src='js06.gif';" onmouseout="this.src='js06.png';"></a>
             </div>
           </div>
 
 
 
-          <div class="card">
+          <div class="card text-white bg-dark">
             <div class="card-body">
               <h5 class="card-title">jQuery</h5>
               <a href="jq/jqnote.html" class="btn btn-info">筆記</a>
-              <a href="jq/verification-form.html" class="btn btn-warning">驗證表單</a>
-              <a href="jq/menu.html" class="btn btn-warning">下拉菜單</a>
-              <a href="jq/slide.html" class="btn btn-warning">滑動區塊</a>
-              <a href="jq/change-pic.html" class="btn btn-warning">即時展示圖片</a>
-              <a href="jq/animate.html" class="btn btn-warning">自定義動畫</a>
-              <a href="jq/open-pic.html" class="btn btn-warning">圖片開展與復原</a>
-              <a href="jq/leave-message.html" class="btn btn-warning">留言</a>
-              <a href="jq/fix-nav.html" class="btn btn-warning">固定導覽列</a>
+              <a href="jq/verification-form.html" title="驗證表單"><img class="card-img" src="jq01.png" ></a>
+              <a href="jq/menu.html" title="下拉菜單"><img class="card-img" src="jq02.png" onmouseover="this.src='jq02.gif';" onmouseout="this.src='jq02.png';"></a>
+              <a href="jq/slide.html" title="滑動區塊"><img class="card-img" src="jq03.png" onmouseover="this.src='jq03.gif';" onmouseout="this.src='jq03.png';"></a>
+              <a href="jq/change-pic.html" title="即時展示圖片"><img class="card-img" src="jq04.png" onmouseover="this.src='jq04.gif';" onmouseout="this.src='jq04.png';"></a>
+              <a href="jq/animate.html" title="自定義動畫"><img class="card-img" src="jq05.png" onmouseover="this.src='jq05.gif';" onmouseout="this.src='jq05.png';"></a>
+              <a href="jq/open-pic.html" title="圖片開展與復原"><img class="card-img" src="jq06.png" onmouseover="this.src='jq06.gif';" onmouseout="this.src='jq06.png';"></a>
+              <a href="jq/leave-message.html" title="留言"><img class="card-img" src="jq07.png" onmouseover="this.src='jq07.gif';" onmouseout="this.src='jq07.png';"></a>
+              <a href="jq/fix-nav.html" title="固定導覽列"><img class="card-img" src="jq08.png" onmouseover="this.src='jq08.gif';" onmouseout="this.src='jq08.png';"></a>
             </div>
           </div>
 
 
 
-          <div class="card">
+          <div class="card text-white bg-dark">
             <div class="card-body">
               <h5 class="card-title">Vue.js</h5>
               <a href="vuenote/vuenote.html" class="btn btn-info">筆記</a>
-              <a href="https://furecool.github.io/vue-todolist/" class="btn btn-warning">Todolist</a>
+              <a href="https://furecool.github.io/vue-todolist/" title="Todolist"><img class="card-img" src="vue01.png" onmouseover="this.src='vue01.gif';" onmouseout="this.src='vue01.png';"></a>
               <!-- <br>
               <a href="meituannote/meituan.htm" class="btn btn-info">筆記</a> -->
-              <a href="https://github.com/furecool/meituan" class="btn btn-warning">美團外賣專案</a>
+              <a href="https://github.com/furecool/meituan" title="美團外賣專案"><img class="card-img" src="vue02.png" onmouseover="this.src='vue02.gif';" onmouseout="this.src='vue02.png';"></a>
             </div>
           </div>
 
 
 
 
-          <div class="card">
+          <div class="card text-white bg-dark">
             <div class="card-body">
               <h5 class="card-title">API</h5>
-              <a href="https://lincheyin.000webhostapp.com/php/weather2/" class="btn btn-warning">Open Weather</a>
+              <!-- <a href="https://lincheyin.000webhostapp.com/php/weather2/" class="btn btn-warning">Open Weather</a> -->
+              <a href="https://lincheyin.000webhostapp.com/php/weather2/" title="Open Weather"><img class="card-img" src="api01.png" onmouseover="this.src='api01.gif';" onmouseout="this.src='api01.png';"></a>
             </div>
           </div>
 
 
 
-          <div class="card">
+          <div class="card text-white bg-dark">
             <div class="card-body">
               <h5 class="card-title">PHP</h5>
-              <a href="https://lincheyin.000webhostapp.com/php/mtom/verification-form.php" class="btn btn-warning">寄信給我</a>
+              <a href="https://lincheyin.000webhostapp.com/php/mtom/verification-form.php" title="寄信給我"><img class="card-img" src="php01.png"></a>
             </div>
           </div>
 
 
 
-          <div class="card">
+          <div class="card text-white bg-dark">
             <div class="card-body">
               <h5 class="card-title">MySQL</h5>
-              <a href="https://lincheyin.000webhostapp.com/note/" class="btn btn-warning">Your Note</a>
+              <a href="https://lincheyin.000webhostapp.com/note/" title="Your Note"><img class="card-img" src="mysql01.png"></a>
             </div>
           </div>
 
@@ -146,7 +157,7 @@
 
 
 
-          <div class="card">
+          <div class="card text-white bg-dark">
             <div class="card-body">
               <h5 class="card-title">Git</h5>
               <a href="gitnote/gitnote.html" class="btn btn-info">筆記</a>
@@ -159,9 +170,17 @@
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 
   </body>
 </html>
